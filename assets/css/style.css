@@ -12,18 +12,13 @@ body {
     height: 100%;
 }
 
-.top-container {
-    height: 20%;
+.outer-container {
     width: 100%;
-}
-
-.bottom-container {
-    height: 80%;
-    width: 100%;
+    height: 100%;
 }
 
 .top-left-container {
-    height: 100%;
+    height: 20%;
     width: 65%;
     float: left;
     background: rgb(226, 223, 43);
@@ -32,7 +27,7 @@ body {
 }
 
 .top-right-container {
-    height: 100%;
+    height: 40%;
     width: 35%;
     float: right;
     background: rgb(127, 140, 255);
@@ -40,7 +35,7 @@ body {
     text-align: center;
 }
 .bottom-left-container {
-    height: 100%;
+    height: 80%;
     width: 65%;
     float: left;
     background: rgb(43, 226, 43);
@@ -49,7 +44,7 @@ body {
 }
 
 .bottom-right-container {
-    height: 100%;
+    height: 60%;
     width: 35%;
     float: right;
     background: rgb(255, 127, 244);
