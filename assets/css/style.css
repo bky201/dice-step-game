@@ -160,3 +160,32 @@ body {
 .btn--brown:hover {
     background-color: rgb(216, 170, 137);
 }
+
+/* score area */
+
+.move {
+    position: relative;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 350;
+    margin-bottom: 1.5rem;
+}
+
+.moves {
+    font-size: 2.5rem;
+    color: rgb(20, 90, 220);
+    font-weight: 340;
+    margin-bottom: auto;
+}
+
+.score {
+    transition: all 0.70s;
+    text-align: center;
+    padding: 1.9rem 2rem;
+    width: 22rem;
+    color: black;
+    border-radius: 30px;
+    opacity: 0.8;
+    background-color: rgb(168, 164, 158);
+}
