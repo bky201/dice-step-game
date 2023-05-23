@@ -3,18 +3,12 @@
     padding: 0;
 }
 
-html,body {
-    height: 100%;
-    margin: 0;
-}
-
 body {
-    height: 100%;
     background-color: bisque;
 }
 
 #page {
-    height: 100vh;
+    height: 108vh;
     display: flex;
     flex-direction: column;
 }
@@ -236,11 +230,11 @@ body {
   /* footer */
 
   #footer {
-    bottom: 2vh;
+    top: 2vh;
   }
 
     .social-media {
-    background-color: darkkhaki;
+    background-color: rgb(143, 188, 196);
     color: #250317;
   }
 
@@ -248,7 +242,15 @@ body {
     text-align: center;
   }
 
+   .social-media-button > li {
+    display: inline;
+   } 
 
+   .social-media-button i {
+    font-size: 120%;
+    padding: 2%;
+    color: rgb(143, 103, 30);
+   }
 
   /* Media Query */
 
