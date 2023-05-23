@@ -8,27 +8,25 @@ body {
 }
 
 #page {
-    height: 108vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 #wraper {
     flex: auto;
-}
-
-.outer-container {
-    width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .top-left-container {
     height: 25.5rem;
     width: 45rem;
+    margin-bottom: 2rem;
     background: rgb(226, 223, 43);
     text-align: center;
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
-    position: absolute;
+    position: relative;
+    float: left;
     display: flex;
     border-radius: 30px;
     left: 8rem;
@@ -41,37 +39,39 @@ body {
     background: rgb(127, 140, 255);
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
     text-align: center;
-    position: absolute;
+    position: relative;
+    float: right;
     display: flex;
     border-radius: 30px;
-    right: 5rem;
+    right: 4rem;
     top: 0.5rem;
 }
 
 .bottom-left-container {
     height: 10.5rem;
     width: 45rem;
-    bottom: 3rem;
     left: 8rem;
     background: rgb(43, 226, 43);
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
     display: flex;
     border-radius: 30px;
     text-align: center;
-    position: absolute;
+    position: relative;
+    float: left;
 }
 
 .bottom-right-container {
-    height: 21rem;
+    height: 17rem;
     width: 26rem;
     background: rgb(255, 127, 244);
     box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
     text-align: center;
-    position: absolute;
+    position: relative;
+    float: right;
     display: flex;
     border-radius: 30px;
-    bottom: 3rem;
-    right: 5rem;
+    bottom: 8rem;
+    right: 4rem;
 }
 
 /* center the div inside the top left container */
@@ -230,11 +230,11 @@ body {
   /* footer */
 
   #footer {
-    top: 2vh;
+    bottom: 2vh;
   }
 
     .social-media {
-    background-color: rgb(143, 188, 196);
+    background-color: rgb(69, 208, 233);
     color: #250317;
   }
 
@@ -247,9 +247,9 @@ body {
    } 
 
    .social-media-button i {
-    font-size: 120%;
+    font-size: 130%;
     padding: 2%;
-    color: rgb(143, 103, 30);
+    color: rgb(30, 41, 143);
    }
 
   /* Media Query */
