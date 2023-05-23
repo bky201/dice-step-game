@@ -143,48 +143,66 @@ body {
   display: flex;
 }
 
+/* Game buttons */
+
 .game-button {
   position: relative;
   background-color: blueviolet;
-  margin: 10px auto;
-  width: 80%;
-  height: 40%;
+  margin: 5px auto;
+  width: 100%;
+  height: 30%;
 }
 
+
+.btn {
+  position: relative;
+  color: #444;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 200;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  border-radius: 30rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
 
 /* score area */
 
 .score {
-    position: relative;
-    text-align: center;
-    padding: 1.9rem 2rem;
-    width: 50%;
-    color: black;
-    border-radius: 30px;
-    background-color: rgb(168, 164, 158);
-    margin: auto;
-  }
+  position: relative;
+  text-align: center;
+  padding: 1.9rem 2rem;
+  width: 50%;
+  color: black;
+  border-radius: 30px;
+  background-color: rgb(168, 164, 158);
+  margin: auto;
+}
 
-  .steps {
-    position: relative;
-    text-align: center;
-    padding: 1.9rem 2rem;
-    width: 50%;
-    color: black;
-    border-radius: 30px;
-    background-color: aquamarine;
-    margin: auto;
-  }
-  
-  .current-name {
-    color: black;
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
-  
-  .total-score {
-    font-size: 3rem;
-  }
+.steps {
+  position: relative;
+  text-align: center;
+  padding: 1.9rem 2rem;
+  width: 50%;
+  color: black;
+  border-radius: 30px;
+  background-color: aquamarine;
+  margin: auto;
+}
+
+.current-name {
+  color: black;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.total-score {
+  font-size: 3rem;
+}
 
 .move {
   position: relative;
@@ -199,26 +217,6 @@ body {
   font-weight: 300;
 }
 
-
-
-/* Game buttons */
-
-.btn {
-  color: #444;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: 200;
-  transition: all 0.2s;
-
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
-
-  padding: 0.7rem 2.5rem;
-  border-radius: 30rem;
-  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
-}
-
 .logo {
   width: 80%;
   height: 60%;
@@ -226,7 +224,7 @@ body {
 
 /* footer */
 
-#footer {
+footer {
   bottom: 2vh;
   position: relative;
 }
@@ -274,15 +272,22 @@ body {
     height: 20%;
     right: 0;
     bottom: 0;
-
   }
-  .logo {
+
+    .logo {
     position: absolute;
-    width: 20%;
+    width: 18%;
     height: 100%;
     display: flex;
     top: 0;
     bottom: 0;
+  }
+
+  h1 {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
   }
 
   .dice-image {
@@ -296,7 +301,7 @@ body {
 
   /* score area */
 
-.score {
+  .score {
     padding: 1.4rem 1rem;
     width: 40%;
   }
@@ -305,34 +310,32 @@ body {
     padding: 1.4rem 1rem;
     width: 40%;
   }
-  
+
   .current-name {
     font-size: 1rem;
   }
-  
+
   .total-score {
     font-size: 2rem;
   }
 
-.move {
-  font-size: 1rem;
-}
+  .move {
+    font-size: 1rem;
+  }
 
-.moves {
-  font-size: 2rem;
-}
+  .moves {
+    font-size: 2rem;
+  }
 
+  /* Game buttons */
 
+  .btn {
+    color: black;
+    font-size: 100%;
+    padding: 0.2rem 1.2rem;
+  }
 
-/* Game buttons */
-
-.btn {
-  color: black;
-  font-size: 100%;
-  padding: 0.5rem 1.2rem;
-}
-
-    #footer {
+  #footer {
     position: relative;
     width: 100%;
     bottom: 0;
