@@ -20,7 +20,7 @@ body {
 
 .top-left-container {
   height: 25.5rem;
-  width: 45rem;
+  width: 43rem;
   margin-bottom: 2rem;
   background: rgb(226, 223, 43);
   text-align: center;
@@ -29,8 +29,8 @@ body {
   float: left;
   display: flex;
   border-radius: 30px;
-  left: 8rem;
-  top: 0.5rem;
+  left: 7rem;
+  top: 1rem;
 }
 
 .top-right-container {
@@ -43,14 +43,14 @@ body {
   float: right;
   display: flex;
   border-radius: 30px;
-  right: 4rem;
-  top: 0.5rem;
+  right: 3rem;
+  top: 1rem;
 }
 
 .bottom-left-container {
   height: 10.5rem;
-  width: 45rem;
-  left: 8rem;
+  width: 43rem;
+  left: 7rem;
   background: rgb(43, 226, 43);
   box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
   display: flex;
@@ -71,7 +71,7 @@ body {
   display: flex;
   border-radius: 30px;
   bottom: 8rem;
-  right: 4rem;
+  right: 3rem;
 }
 
 /* center the div inside the top left container */
@@ -254,35 +254,26 @@ body {
 
 @media screen and (max-width: 1200px) {
   .top-right-container {
-    position: relative;
-    display: flex;
-    margin: 0 auto;
     width: 100%;
     height: 10%;
     right: 0;
   }
   .top-left-container {
-    position: relative;
-    display: flex;
-    margin: 0 auto;
     width: 100%;
     height: 60%;
     left: 0;
   }
   .bottom-left-container {
-    position: relative;
-    display: flex;
     width: 50%;
     height: 20%;
     left: 0;
-    margin: 10px;
+    bottom: 0;
   }
   .bottom-right-container {
-    position: relative;
     width: 50%;
     height: 20%;
-    display: flex;
     right: 0;
+    bottom: 0;
 
   }
   .logo {
