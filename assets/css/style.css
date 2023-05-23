@@ -216,3 +216,8 @@ body {
     border-radius: 30rem;
     box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
   }
+  
+  .logo {
+    width: 80%;
+    height: 60%;
+  }
