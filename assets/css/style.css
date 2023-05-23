@@ -303,29 +303,43 @@ body {
     height: 3em;
   }
 
-  .game-button {
-    position: relative;
-    background-color: blueviolet;
-    margin: 10px auto;
-    width: 80%;
-    height: 40%;
+  /* score area */
+
+.score {
+    padding: 1.4rem 1rem;
+    width: 40%;
   }
 
-  .btn {
-    color: black;
-    font-size: 85%;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: solid 200;
-    transition: all 0.2s;
-  
-    background-color: white;
-    background-color: rgba(255, 255, 255, 0.6);
-  
-    padding: 0.6rem 2.5rem;
-    border-radius: 30rem;
-    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  .steps {
+    padding: 1.4rem 1rem;
+    width: 40%;
   }
+  
+  .current-name {
+    font-size: 1rem;
+  }
+  
+  .total-score {
+    font-size: 2rem;
+  }
+
+.move {
+  font-size: 1rem;
+}
+
+.moves {
+  font-size: 2rem;
+}
+
+
+
+/* Game buttons */
+
+.btn {
+  color: black;
+  font-size: 100%;
+  padding: 0.5rem 1.2rem;
+}
 
     #footer {
     position: relative;
