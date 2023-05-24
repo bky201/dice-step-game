@@ -280,6 +280,25 @@ footer {
   opacity: 0.2;
   border-radius: 10px;
 }
+.middle:hover {
+  opacity: 0.8;
+}
+#img-text {
+  font-family: "Open Sans", sans-serif;
+  background-color: rgb(177, 177, 11);
+  font-size: 100%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s;
+  color: black;
+}
+
+.middle:hover #img-text {
+  opacity: 1;
+  color: rgb(29, 14, 226);
+}
 
 .bottom {
   width: 100%;
