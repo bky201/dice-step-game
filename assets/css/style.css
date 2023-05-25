@@ -177,7 +177,7 @@ body {
 
 /* score area */
 
-.score {
+#score {
   position: relative;
   text-align: center;
   padding: 1.9rem 2rem;
@@ -188,7 +188,7 @@ body {
   margin: auto;
 }
 
-.steps {
+#steps {
   position: relative;
   text-align: center;
   padding: 1.9rem 2rem;
@@ -199,24 +199,24 @@ body {
   margin: auto;
 }
 
-.current-name {
+#current-name {
   color: black;
   font-size: 2rem;
   text-transform: uppercase;
 }
 
-.total-score {
+#total-score {
   font-size: 3rem;
 }
 
-.move {
+#move {
   position: relative;
   font-size: 2rem;
   text-transform: uppercase;
   /* font-weight: 300; */
 }
 
-.moves {
+#moves {
   font-size: 3rem;
   color: black;
   /* font-weight: 300; */
@@ -387,29 +387,29 @@ footer {
 
   /* score area */
 
-  .score {
+  #score {
     padding: 1.4rem 1rem;
     width: 40%;
   }
 
-  .steps {
+  #steps {
     padding: 1.4rem 1rem;
     width: 40%;
   }
 
-  .current-name {
+  #current-name {
     font-size: 1rem;
   }
 
-  .total-score {
+  #total-score {
     font-size: 2rem;
   }
 
-  .move {
+  #move {
     font-size: 1rem;
   }
 
-  .moves {
+  #moves {
     font-size: 2rem;
   }
 
@@ -574,33 +574,33 @@ footer {
 
 /* score area */
 
-.score {
+#score {
   padding: 1rem 1rem;
   width: 20%;
   border-radius: 20px;
   margin: auto;
 }
 
-.steps {
+#steps {
   padding: 1rem 1rem;
   width: 20%;
   border-radius: 20px;
   margin: auto;
 }
 
-.current-name {
+#current-name {
   font-size: 1rem;
 }
 
-.total-score {
+#total-score {
   font-size: 2rem;
 }
 
-.move {
+#move {
   font-size: 1rem;
 }
 
-.moves {
+#moves {
   font-size: 2rem;
 }
 

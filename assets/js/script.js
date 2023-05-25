@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "new-game"){
-               displayBoard("hexagon"); 
+               displayBoard("new-game"); 
             } else {
                 let buttonType = this.getAttribute("data-type");
-                // alert(`You clicked ${buttonType}`);
+                displayBoard(buttonType);
             }
         })
     }
 
-    displayBoard("hexagon")
+    displayBoard("new-game")
     
 })
 
@@ -23,11 +23,27 @@ document.addEventListener('DOMContentLoaded', function() {
  * displayBoard is called when the user starts
  * new game or resets a game
  */
-function displayBoard(className) {
+function displayBoard(buttonType) {
+    // Create an array of hexagon elements
     let hexagons = document.getElementsByClassName("hexagon");
-    for (let i = 0; i < hexagons.length; i++) {
-        const number = hexagons[i].querySelector('p');
-        number.innerHTML = Math.floor(Math.random()*6)+1;
+    let steps = document.getElementById("moves");
+    let score = document.getElementById("total-score");
+
+    
+
+
+    if (buttonType === "new-game") {
+        for (let i = 0; i < hexagons.length; i++) {
+            const num = hexagons[i].querySelector('p');
+            num.innerHTML = Math.floor(Math.random()*6)+1;
+        };
+        
+        steps.innerHTML = "0";
+
+        score.innerHTML = "0";
+
+    } else {
+        alert(`Unknown button type: ${buttonType}`);
     }
 }
 
