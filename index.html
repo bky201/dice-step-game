@@ -11,135 +11,58 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <style>
+        body {
+            background-image: url('assets/images/hexagon-background_6050394.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="page">
+    <div id="homePage">
         <div id="wraper">
-            <div class="top-right-container">
-                <div class="center">
-                    <h1>Complete One Path</h1>
-                    <img src="assets/images/logo.png" alt="logo" class="logo" />
+            <div class="top">
+                <div class="center home">
+                    <h1>Step Game Path</h1>
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="logo" class="logo" />
+                    </a>
                 </div>
             </div>
 
-            <div class="top-left-container">
+            <div class="middle">
                 <div class="center">
-                    <div class="container">
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="hexagon offset">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="hexagon offset">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
-                        <div class="hexagon">
-                            <p>1</p>
-                        </div>
+                    <div id="img-text">
+                        <p>Step Game is A game played with a dice.</p>
+                        <p>You roll the dice one time and target the number on the play ground.</p>
+                        <p>After rolling you Select a number and click on it.</p>
+                        <p>The the hexagon containing the number place will get colored.</p>
+                        <p>The number of dice is a random number to choose from play ground number.</p>
+                        <p>The rolling of Dice is the number of steps.</p>
+                        <p>Completing one path will win.</p>
+                        <p>Path starts from the lower row to the top row.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="bottom-left-container">
+            <div class="bottom">
                 <div class="center">
-                    <div class="dice-image">
-                        <img class="dice image" src="assets/images/1.png" alt="dice image" />
-                        <img class="dice hover-image" src="assets/images/d1.png" alt="dice image" />
-                    </div>
+                    
                     <div class="game-button">
-                        <button type="button" aria-label="Submit result" data-type="submit" class="btn btn--game">
-                            <a href="home.html">Reset game</a>
+                        <button type="button" aria-label="Submit result" data-type="submit" class="btn btn--game" id="new-game">
+                            <a href="game.html">New game</a>
                         </button>
                         <button type="button" aria-label="Submit result" data-type="submit" class="btn btn--play">
-                            Roll Dice
+                            <a href="game.html">Continue</a>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="bottom-right-container">
-                <div class="score">
-                    <h2 class="current-name">Score</h2>
-                    <p class="total-score">10</p>
-                </div>
-                <div class="steps">
-                    <h2 class="move">Steps</h2>
-                    <p class="moves">10</p>
-                </div>
-            </div>
+            
         </div>
         <footer id="footer">
             <div class="social-media">
@@ -168,10 +91,10 @@
             </div>
         </footer>
 
-        <!-- font awesome script -->
-        <script src="https://kit.fontawesome.com/884541f495.js" crossorigin="anonymous"></script>
-        <script src="assets/js/script.js"></script>
     </div>
+    <!-- font awesome script -->
+    <script src="https://kit.fontawesome.com/884541f495.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
