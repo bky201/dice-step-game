@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = "index.html"
             } else if (button.getAttribute("data-type") === "start-game"){
                 displayBoard();
+                button.disabled = true;
+            } else {
+                alert(`Unknown button type: ${buttonType}`);
             }
             
         
