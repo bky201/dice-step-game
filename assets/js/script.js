@@ -72,13 +72,35 @@ function playGame() {
         let clickElement = parseInt(element.innerHTML);
         if (clickElement === num) {
             element.parentNode.style.backgroundColor = "gold";
+            element.addEventListener("click", checkBox);
         } else {
             element.parentNode.style.backgroundColor = "#ccc";
         }
     }
+    
+    
 }
 
 function checkBox() {
+    let highLightedHexagons = document.getElementsByClassName("hexagon");
+    let goldDivElements = Array.from(highLightedHexagons).filter(div => {
+    let computedStyle = window.getComputedStyle(div);
+    let backgroundColor = computedStyle.backgroundColor;
+    return backgroundColor === 'gold' || backgroundColor === 'rgb(255, 215, 0)' || backgroundColor === '#FFD700';
+      });
+
+
+        for (let goldDiv of goldDivElements) {
+            goldDiv.addEventListener("click", function(event){
+                event.preventDefault();
+                if (event.target) {
+                    goldDiv.style.backgroundColor = "green";
+                    goldDiv.childNodes.innerHTML = null;
+                } else {
+                    goldDiv.style.backgroundColor = "#ccc";
+                }
+            })
+        }
 
 }
 
