@@ -11,7 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = "game.html"; 
 
             } else if (button.getAttribute("data-type") === "end-game"){
+                saveGame();
                 window.location.href = "index.html"
+            } else if (button.getAttribute("data-type") === "continue-game"){
+                retrieveGame();
+                
             } else if (button.getAttribute("data-type") === "start-game"){
                 displayBoard();
                 button.disabled = true;
@@ -25,10 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
        
 })
-
-
-
-
 
 /**
  * displayBoard is called when the user starts
@@ -125,3 +125,58 @@ function countScore() {
 
 }
 
+function saveGame() {
+    const hexagons = document.getElementsByClassName("number");
+    const hexagonsArray = Array.from(hexagons); //convert NodeList to an array
+
+    const hexagonsString = JSON.stringify(hexagonsArray); // convert elements array to string
+
+    localStorage.setItem("hexagonElements", hexagonsString);
+    
+    const score = document.getElementById("total-score");
+    const scoreArray = Array.from(score); //convert NodeList to an array
+
+    const scoreString = JSON.stringify(scoreArray); // convert elements array to string
+
+    localStorage.setItem("scoreElements", scoreString);
+    
+    const steps = document.getElementById("moves");
+    const stepsArray = Array.from(steps); //convert NodeList to an array
+
+    const stepsString = JSON.stringify(stepsArray); // convert elements array to string
+
+    localStorage.setItem("stepsElements", stepsString);
+    
+    }
+
+function retrieveGame() {
+
+    const savedhexagonsString = localStorage.getItem('hexagonElements');
+    const savedhexagon = arrayToNodeList(JSON.parse(savedhexagonsString));
+    const savedscoreString = localStorage.getItem('scoreElements');
+    const savedScore = arrayToNodeList(JSON.parse(savedscoreString));
+    const savedstepsString = localStorage.getItem('stepsElements');
+    const savedSteps = arrayToNodeList(JSON.parse(savedstepsString));
+
+    const hexagons = document.getElementsByClassName("number");
+        for (let i = 0; i < hexagons.length; i++) {
+            hexagons[i].textContent = savedhexagon[i].textContent;
+        }
+
+    const score = document.getElementById("total-score");
+    score.textContent = savedScore.textContent;
+
+    const steps = document.getElementById("moves");
+    steps.textContent = savedSteps.textContent;
+    
+}
+
+// converting array to Node list
+function arrayToNodeList(array) {
+    const fragment = document.createDocumentFragment();
+    array.forEach(function (item) {
+      fragment.appendChild(item);
+    });
+    return fragment.childNodes;
+  }
+  

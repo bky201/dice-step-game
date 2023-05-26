@@ -36,14 +36,25 @@
             <div class="middle">
                 <div class="center">
                     <div id="img-text">
-                        <p>Step Game is A game played with a dice.</p>
-                        <p>You roll the dice one time and target the number on the play ground.</p>
-                        <p>After rolling you Select a number and click on it.</p>
-                        <p>The the hexagon containing the number place will get colored.</p>
-                        <p>The number of dice is a random number to choose from play ground number.</p>
-                        <p>The rolling of Dice is the number of steps.</p>
-                        <p>Completing one path will win.</p>
-                        <p>Path starts from the lower row to the top row.</p>
+                        <!-- Trigger/Open The Model -->
+                        <button id="myBtn">Game Instructions</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span classs="close">&times;</span>
+                                <p>Step Game is A game played with a dice.</p>
+                                <p>You roll the dice one time and target the number on the play ground.</p>
+                                <p>After rolling you Select a number and click on it.</p>
+                                <p>The the hexagon containing the number place will get colored.</p>
+                                <p>The number of dice is a random number to choose from play ground number.</p>
+                                <p>The rolling of Dice is the number of steps.</p>
+                                <p>Completing one path will win.</p>
+                                <p>Path starts from the lower row to the top row.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,7 +105,35 @@
     </div>
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/884541f495.js" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+        
 </body>
 
 </html>
