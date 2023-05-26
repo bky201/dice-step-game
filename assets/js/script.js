@@ -61,9 +61,11 @@ function playGame() {
     let diceOne = document.getElementById("dice-one");
     let diceTwo = document.getElementById("dice-two");
     let num = Math.floor(Math.random() * 6) + 1;
+    let steps = document.getElementById("moves");
     
     diceOne.src = `assets/images/${num}.png`;
     diceTwo.src = `assets/images/d${num}.png`;
+    steps.innerHTML = parseInt(steps.innerHTML) + 1;
      
     
 }
