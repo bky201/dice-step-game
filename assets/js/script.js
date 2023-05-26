@@ -67,7 +67,15 @@ function playGame() {
     diceTwo.src = `assets/images/d${num}.png`;
     steps.innerHTML = parseInt(steps.innerHTML) + 1;
      
-    
+    let choosenElements = document.getElementsByClassName('number');
+    for (let element of choosenElements) {
+        let clickElement = parseInt(element.innerHTML);
+        if (clickElement === num) {
+            element.parentNode.style.backgroundColor = "gold";
+        } else {
+            element.parentNode.style.backgroundColor = "#ccc";
+        }
+    }
 }
 
 function checkBox() {
