@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 saveGame();
                 window.location.href = "index.html"
             } else if (button.getAttribute("data-type") === "continue-game"){
+                window.location.href = "game.html"
                 retrieveGame();
                 
             } else if (button.getAttribute("data-type") === "start-game"){
                 displayBoard();
                 button.disabled = true;
+            } else if (button.getAttribute("data-type") === "roll-dice"){
+                displayBoard();
+                
             } else {
                 alert(`Unknown button type: ${buttonType}`);
             }
@@ -51,44 +55,6 @@ function displayBoard() {
    
 }
 
-function continueGame(buttonType) {
-    
-    if (buttonType === "new-game") {
-        for (let i = 0; i < hexagons.length; i++) {
-            const num = hexagons[i].querySelector('p');
-            num.innerHTML = Math.floor(Math.random()*6)+1;
-        };
-     
-    // Reset number of moves to zero
-        steps.innerHTML = "0";
-
-    // Reset total score to zero    
-        score.innerHTML = "0";
-
-    } 
-    else if (buttonType === "reset-game") {
-
-        var resethexagons = document.getElementsByClassName("hexagon");
-        var resetsteps = document.getElementById("moves").innerText;
-        var resetscore = document.getElementById("total-score").innerText;
-        
-    
-    } else if (buttonType === "continue-game") {
-        for (let i = 0; i < hexagons.length; i++) {
-            const num = hexagons[i].querySelector('p');
-            const resetnum = resethexagons[i].querySelector('p');
-            num.innerHTML = resetnum.innerHTML;
-        };
-
-        steps.innerHTML = resetsteps.innerHTML;
-        score.innerHTML = resetscore.innerHTML;
-        
-    
-    }
-     else {
-        alert(`Unknown button type: ${buttonType}`);
-    }
-}
 
 function playGame() {
 
@@ -126,57 +92,32 @@ function countScore() {
 }
 
 function saveGame() {
-    const hexagons = document.getElementsByClassName("number");
-    const hexagonsArray = Array.from(hexagons); //convert NodeList to an array
+    // Get the entire HTML content of the page
+    const pageContent = document.documentElement.outerHTML;
 
-    const hexagonsString = JSON.stringify(hexagonsArray); // convert elements array to string
+    // Save the content to local storage
+    localStorage.setItem('savedPageContent', pageContent);
 
-    localStorage.setItem("hexagonElements", hexagonsString);
-    
-    const score = document.getElementById("total-score");
-    const scoreArray = Array.from(score); //convert NodeList to an array
-
-    const scoreString = JSON.stringify(scoreArray); // convert elements array to string
-
-    localStorage.setItem("scoreElements", scoreString);
-    
-    const steps = document.getElementById("moves");
-    const stepsArray = Array.from(steps); //convert NodeList to an array
-
-    const stepsString = JSON.stringify(stepsArray); // convert elements array to string
-
-    localStorage.setItem("stepsElements", stepsString);
-    
     }
+
 
 function retrieveGame() {
 
-    const savedhexagonsString = localStorage.getItem('hexagonElements');
-    const savedhexagon = arrayToNodeList(JSON.parse(savedhexagonsString));
-    const savedscoreString = localStorage.getItem('scoreElements');
-    const savedScore = arrayToNodeList(JSON.parse(savedscoreString));
-    const savedstepsString = localStorage.getItem('stepsElements');
-    const savedSteps = arrayToNodeList(JSON.parse(savedstepsString));
+    // Retrieve the saved page content from local storage
+    const savedPageContent = localStorage.getItem('savedPageContent');
 
-    const hexagons = document.getElementsByClassName("number");
-        for (let i = 0; i < hexagons.length; i++) {
-            hexagons[i].textContent = savedhexagon[i].textContent;
-        }
-
-    const score = document.getElementById("total-score");
-    score.textContent = savedScore.textContent;
-
-    const steps = document.getElementById("moves");
-    steps.textContent = savedSteps.textContent;
+    // Check if there is saved content
+    if (savedPageContent) {
+    // Set the retrieved content as the new HTML content
+    document.open();
+    document.write(savedPageContent);
+    document.close();
+  
+    // Delete the saved content from local storage
+    localStorage.removeItem('savedPageContent');
+    }
     
 }
 
-// converting array to Node list
-function arrayToNodeList(array) {
-    const fragment = document.createDocumentFragment();
-    array.forEach(function (item) {
-      fragment.appendChild(item);
-    });
-    return fragment.childNodes;
-  }
+
   
