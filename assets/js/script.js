@@ -9,28 +9,46 @@ document.addEventListener('DOMContentLoaded', function() {
             if (button.getAttribute("data-type") === "new-game"){
                // navigate to each HTML page
                 window.location.href = "game.html"; 
-                displayBoard("new-game");
 
-            } else if (button.getAttribute("data-type") === "reset-game"){
+            } else if (button.getAttribute("data-type") === "end-game"){
                 window.location.href = "index.html"
+            } else if (button.getAttribute("data-type") === "start-game"){
+                displayBoard();
             }
+            
         
         })
     }
-    
-    
+
+       
 })
 
-// Create an array of hexagon elements
-let hexagons = document.getElementsByClassName("hexagon");
-let steps = document.getElementById("moves");
-let score = document.getElementById("total-score");
+
+
+
 
 /**
  * displayBoard is called when the user starts
  * new game or resets a game
- */
-function displayBoard(buttonType) {
+*/
+function displayBoard() {
+    
+    let hexagons = document.getElementsByClassName("number");
+    let steps = document.getElementById("total-score");
+    let score = document.getElementById("moves");
+    for (let hexagon of hexagons) {
+        hexagon.innerHTML = Math.floor(Math.random()*6)+1;
+    };
+     
+    // Reset number of moves to zero
+        steps.innerHTML = "0";
+
+    // Reset total score to zero    
+        score.innerHTML = "0";
+   
+}
+
+function continueGame(buttonType) {
     
     if (buttonType === "new-game") {
         for (let i = 0; i < hexagons.length; i++) {
