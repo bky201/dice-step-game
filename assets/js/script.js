@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 displayBoard();
                 button.disabled = true;
             } else if (button.getAttribute("data-type") === "roll-dice"){
-                displayBoard();
+                playGame();
                 
             } else {
                 alert(`Unknown button type: ${buttonType}`);
@@ -58,21 +58,14 @@ function displayBoard() {
 
 function playGame() {
 
-    for (const button of buttons) {
-
-        button.addEventListener("click", function() {
-            if (button.getAttribute("data-type") === "new-game"){
-               displayBoard("new-game"); 
-            } else {
-                let buttonType = button.getAttribute("data-type");
-                displayBoard(buttonType);
-                // alert(`Unknown button type: ${buttonType}`);
-            }
-        })
-    }
-
-    // displayBoard(buttonType)
-
+    let diceOne = document.getElementById("dice-one");
+    let diceTwo = document.getElementById("dice-two");
+    let num = Math.floor(Math.random() * 6) + 1;
+    
+    diceOne.src = `assets/images/${num}.png`;
+    diceTwo.src = `assets/images/d${num}.png`;
+     
+    
 }
 
 function checkBox() {
