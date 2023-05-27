@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = "game.html"; 
 
             } else if (button.getAttribute("data-type") === "end-game"){
-                saveGame();
+                saveGame("savedPage");
                 window.location.href = "index.html"
             } else if (button.getAttribute("data-type") === "continue-game"){
                 window.location.href = "game.html"
-                retrieveGame();
+                retrieveGame("savedPage");
+                deleteGame("savedPage");
                 
             } else if (button.getAttribute("data-type") === "start-game"){
                 displayBoard();
@@ -41,10 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
  * new game or resets a game
 */
 function displayBoard() {
-    let hexagons = document.getElementsByClassName("number");
+    let hexagonsNum = document.getElementsByClassName("number");
     let score = document.getElementById("total-score");
+    let steps = document.getElementById("moves");
     
-    for (let hexagon of hexagons) {
+    for (let hexagon of hexagonsNum) {
         hexagon.innerHTML = Math.floor(Math.random()*6)+1;
     };
      
@@ -56,30 +58,30 @@ function displayBoard() {
    
 }
 
-let diceOne = document.getElementById("dice-one");
-let diceTwo = document.getElementById("dice-two");
-let steps = document.getElementById("moves");
 
 function playGame() {
+    let hexagons = document.getElementsByClassName("number");
+    let diceOne = document.getElementById("dice-one");
+    let diceTwo = document.getElementById("dice-two");
+    let steps = document.getElementById("moves");
     let num = Math.floor(Math.random() * 6) + 1;
 
     
     diceOne.src = `assets/images/${num}.png`;
     diceTwo.src = `assets/images/d${num}.png`;
     steps.innerHTML = parseInt(steps.innerHTML) + 1;
-    checkBox(num);
+    checkBox(num, hexagons);
     let elements = Array.from(document.getElementsByClassName("hexagon"));
 
     resetHexagon(elements, num);
     // clickedBox();
     
-    numClicks = 0;
+    
 }
-let choosenElements = document.getElementsByClassName('number');
 
 // function returns a highlight of numbers
-function checkBox(num) {
-    for (let element of choosenElements) {
+function checkBox(num, hexagons) {
+    for (let element of hexagons) {
         let clickElement = parseInt(element.innerHTML);
         if (clickElement === num) {
             element.parentNode.style.backgroundColor = "gold";
@@ -89,7 +91,7 @@ function checkBox(num) {
 
     }
     
-    return choosenElements;
+    return hexagons;
 
 }
 
@@ -97,17 +99,16 @@ function completePath() {
 
 }
 
-let numClicks = 0;
 
 function resetHexagon(hexagonElements, value) {
     let clickedElements = [];
   
+    let numClicks = 0;
     // Iterate through all div elements
     hexagonElements.forEach(element => {
       const initialColor = window.getComputedStyle(element).backgroundColor;
-  
       element.addEventListener("click", function handleClick() {
-        // Check if the element's number content matches the given value
+          // Check if the element's number content matches the given value
         if (Number(element.textContent) === value && numClicks === 0) {
           // Set the background color of the clicked element to green
           element.style.backgroundColor = "green";
@@ -149,33 +150,24 @@ function countScore() {
 
 }
 
-function saveGame() {
-    // Get the entire HTML content of the page
-    const pageContent = document.documentElement.outerHTML;
+function saveGame(key) {
+    const htmlContent = document.documentElement.outerHTML;
+    localStorage.setItem(key, htmlContent);
+  }
 
-    // Save the content to local storage
-    localStorage.setItem('savedPageContent', pageContent);
 
+function retrieveGame(key) {
+    const htmlContent = localStorage.getItem(key);
+    if (htmlContent) {
+      document.open();
+      document.write(htmlContent);
+      document.close();
     }
+  }
 
-
-function retrieveGame() {
-
-    // Retrieve the saved page content from local storage
-    const savedPageContent = localStorage.getItem('savedPageContent');
-
-    // Check if there is saved content
-    if (savedPageContent) {
-    // Set the retrieved content as the new HTML content
-    document.open();
-    document.write(savedPageContent);
-    document.close();
+  function deleteGame(key) {
+    localStorage.removeItem(key);
+  }
   
-    // Delete the saved content from local storage
-    localStorage.removeItem('savedPageContent');
-    }
-    
-}
-
 
   
