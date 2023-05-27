@@ -73,7 +73,7 @@ function playGame() {
     resetHexagon(elements, num);
     // clickedBox();
     
-    
+    numClicks = 0;
 }
 let choosenElements = document.getElementsByClassName('number');
 
@@ -97,6 +97,7 @@ function completePath() {
 
 }
 
+let numClicks = 0;
 
 function resetHexagon(hexagonElements, value) {
     let clickedElements = [];
@@ -107,11 +108,12 @@ function resetHexagon(hexagonElements, value) {
   
       element.addEventListener("click", function handleClick() {
         // Check if the element's number content matches the given value
-        if (Number(element.textContent) === value) {
+        if (Number(element.textContent) === value && numClicks === 0) {
           // Set the background color of the clicked element to green
           element.style.backgroundColor = "green";
-          element.innerHTML = "0";
-  
+          element.textContent = '';
+          element.removeEventListener("click", handleClick);
+          numClicks++;  
           // Add the clicked element to the array of clicked elements
           if (!clickedElements.includes(element)) {
             clickedElements.push(element);
@@ -119,9 +121,10 @@ function resetHexagon(hexagonElements, value) {
         } else {
           // Reset the background color of all elements except the clicked one
           hexagonElements.forEach(div => {
-            if (div !== element) {
+            if (div !== element && div.textContent !== "") {
               div.style.backgroundColor = "#ccc";
               div.removeEventListener("click", handleClick);
+              element.removeEventListener("click", handleClick);
             }
           });
         }
