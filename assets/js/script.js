@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 displayBoard();
                 button.disabled = true;
             } else if (button.getAttribute("data-type") === "roll-dice"){
+                
                 playGame();
+                
                 
             } else {
                 alert(`Unknown button type: ${buttonType}`);
@@ -39,10 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
  * new game or resets a game
 */
 function displayBoard() {
-    
     let hexagons = document.getElementsByClassName("number");
-    let steps = document.getElementById("total-score");
-    let score = document.getElementById("moves");
+    let score = document.getElementById("total-score");
+    
     for (let hexagon of hexagons) {
         hexagon.innerHTML = Math.floor(Math.random()*6)+1;
     };
@@ -55,34 +56,33 @@ function displayBoard() {
    
 }
 
+let diceOne = document.getElementById("dice-one");
+let diceTwo = document.getElementById("dice-two");
+let steps = document.getElementById("moves");
 
 function playGame() {
-
-    let diceOne = document.getElementById("dice-one");
-    let diceTwo = document.getElementById("dice-two");
     let num = Math.floor(Math.random() * 6) + 1;
-    let steps = document.getElementById("moves");
-    let hexagon = document.getElementsByClassName("number");
+
     
     diceOne.src = `assets/images/${num}.png`;
     diceTwo.src = `assets/images/d${num}.png`;
     steps.innerHTML = parseInt(steps.innerHTML) + 1;
-     
-    hexagon = checkBox(num);
+    checkBox(num);
+    let elements = Array.from(document.getElementsByClassName("hexagon"));
+
+    resetHexagon(elements, num);
+    // clickedBox();
     
     
 }
+let choosenElements = document.getElementsByClassName('number');
 
 // function returns a highlight of numbers
 function checkBox(num) {
-    let choosenElements = document.getElementsByClassName('number');
     for (let element of choosenElements) {
         let clickElement = parseInt(element.innerHTML);
         if (clickElement === num) {
             element.parentNode.style.backgroundColor = "gold";
-            element.parentNode.addEventListener("click", function(){
-                element.parentNode.style.backgroundColor = "green";
-            });
         } else {
             element.parentNode.style.backgroundColor = "#ccc";
         }
@@ -97,12 +97,47 @@ function completePath() {
 
 }
 
-function clickedBox(highlightedBox) {
 
-    let highlighted = highlightedBox.getElementsByClassName('hexagon');
-    for (let highlight of highlighted) {
-        highlight.addEventListener("click", handleClick);
-    }
+function resetHexagon(hexagonElements, value) {
+    let clickedElements = [];
+  
+    // Iterate through all div elements
+    hexagonElements.forEach(element => {
+      const initialColor = window.getComputedStyle(element).backgroundColor;
+  
+      element.addEventListener("click", function handleClick() {
+        // Check if the element's number content matches the given value
+        if (Number(element.textContent) === value) {
+          // Set the background color of the clicked element to green
+          element.style.backgroundColor = "green";
+          element.innerHTML = "0";
+  
+          // Add the clicked element to the array of clicked elements
+          if (!clickedElements.includes(element)) {
+            clickedElements.push(element);
+          }
+        } else {
+          // Reset the background color of all elements except the clicked one
+          hexagonElements.forEach(div => {
+            if (div !== element) {
+              div.style.backgroundColor = "#ccc";
+              div.removeEventListener("click", handleClick);
+            }
+          });
+        }
+      });
+    });
+  
+    return { elements: hexagonElements, clickedElements };
+  }
+  
+  
+  
+  
+  
+
+function handleEvent(e) {
+
 }
 
 
