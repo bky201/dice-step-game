@@ -62,45 +62,34 @@ function playGame() {
     let diceTwo = document.getElementById("dice-two");
     let num = Math.floor(Math.random() * 6) + 1;
     let steps = document.getElementById("moves");
+    let hexagon = document.getElementsByClassName("number");
     
     diceOne.src = `assets/images/${num}.png`;
     diceTwo.src = `assets/images/d${num}.png`;
     steps.innerHTML = parseInt(steps.innerHTML) + 1;
      
+    hexagon = checkBox(num);
+    
+    
+}
+
+// function returns a highlight of numbers
+function checkBox(num) {
     let choosenElements = document.getElementsByClassName('number');
     for (let element of choosenElements) {
         let clickElement = parseInt(element.innerHTML);
         if (clickElement === num) {
             element.parentNode.style.backgroundColor = "gold";
-            element.addEventListener("click", checkBox);
+            element.parentNode.addEventListener("click", function(){
+                element.parentNode.style.backgroundColor = "green";
+            });
         } else {
             element.parentNode.style.backgroundColor = "#ccc";
         }
+
     }
     
-    
-}
-
-function checkBox() {
-    let highLightedHexagons = document.getElementsByClassName("hexagon");
-    let goldDivElements = Array.from(highLightedHexagons).filter(div => {
-    let computedStyle = window.getComputedStyle(div);
-    let backgroundColor = computedStyle.backgroundColor;
-    return backgroundColor === 'gold' || backgroundColor === 'rgb(255, 215, 0)' || backgroundColor === '#FFD700';
-      });
-
-
-        for (let goldDiv of goldDivElements) {
-            goldDiv.addEventListener("click", function(event){
-                event.preventDefault();
-                if (event.target) {
-                    goldDiv.style.backgroundColor = "green";
-                    goldDiv.childNodes.innerHTML = null;
-                } else {
-                    goldDiv.style.backgroundColor = "#ccc";
-                }
-            })
-        }
+    return choosenElements;
 
 }
 
@@ -108,9 +97,15 @@ function completePath() {
 
 }
 
-function countMove() {
+function clickedBox(highlightedBox) {
 
+    let highlighted = highlightedBox.getElementsByClassName('hexagon');
+    for (let highlight of highlighted) {
+        highlight.addEventListener("click", handleClick);
+    }
 }
+
+
 
 function countScore() {
 
