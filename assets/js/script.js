@@ -74,7 +74,7 @@ function playGame() {
     let elements = Array.from(document.getElementsByClassName("hexagon"));
 
     resetHexagon(elements, num);
-    // clickedBox();
+    // clickedBox(num, hexagons);
     
     
 }
@@ -115,6 +115,8 @@ function resetHexagon(hexagonElements, value) {
           element.textContent = '';
           element.removeEventListener("click", handleClick);
           numClicks++;  
+          console.log(checkConditions(clickedElements));
+          
           // Add the clicked element to the array of clicked elements
           if (!clickedElements.includes(element)) {
             clickedElements.push(element);
@@ -140,9 +142,55 @@ function resetHexagon(hexagonElements, value) {
   
   
 
-function handleEvent(e) {
+  function checkConditions(clickedElements) {
+    const bottomRowElements = clickedElements.filter(element => element.row === 4);
+    const topRowElements = clickedElements.filter(element => element.row === 0);
+  
+    if (bottomRowElements.length === 0 || topRowElements.length === 0) {
+      return false;
+    }
+  
+    const pathExists = topRowElements.some(topElement => {
+      const path = [topElement];
+      return checkPathRecursively(bottomRowElements, path);
+    });
+  
+    return pathExists;
+  }
+  
+  function checkPathRecursively(bottomRowElements, path) {
+    const currentElement = path[path.length - 1];
+  
+    if (currentElement.row === 0) {
+      return true; // Base case: Reached the top row
+    }
+  
+    const rowAbove = currentElement.row - 1;
+    const possibleNeighbors = [currentElement.column - 1, currentElement.column, currentElement.column + 1];
+  
+    for (const neighbor of possibleNeighbors) {
+      const matchingElement = bottomRowElements.find(element => element.row === rowAbove && element.column === neighbor);
+  
+      if (matchingElement && !path.includes(matchingElement)) {
+        path.push(matchingElement);
+        const pathExists = checkPathRecursively(bottomRowElements, path);
+  
+        if (pathExists) {
+          return true;
+        }
+  
+        path.pop();
+      }
+    }
+  
+    return false; // No valid path found
+  }
+  
+  
+  
+  
+  
 
-}
 
 
 
