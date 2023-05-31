@@ -138,8 +138,8 @@ body {
 .bottom-left-container {
   height: 10.5rem;
   width: 43rem;
-  left: 7rem;
-  bottom: 0.6rem;
+  left: 7em;
+  bottom: 0.6em;
   box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
   background: rgb(56, 133, 156);
   border-radius: 10px;
