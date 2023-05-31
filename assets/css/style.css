@@ -200,12 +200,10 @@ body {
   background:#fefefe;
 }
 /* center text content inside the hexagon*/
-.hexagon p {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.number {
+  font-size: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .offset {
