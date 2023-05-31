@@ -312,30 +312,37 @@ function checkBox(num, hexagons) {
 }
 
 
-function resetHexagon(hexagonElements, value, callback) {
+ffunction resetHexagon(hexagonElements, value, callback) {
   function handleClick(event) {
     const element = event.target;
     if (Number(element.textContent) === value) {
       element.style.backgroundColor = "green";
       element.textContent = "";
       callback(element);
+
+      // Disable click event on all elements
+      hexagonElements.forEach(row => {
+        row.forEach(div => {
+          div.removeEventListener("click", handleClick);
+        });
+      });
     } else {
       // Reset the background color of all elements except the clicked one
       hexagonElements.forEach(row => {
         row.forEach(div => {
           if (div !== element && div.textContent !== "") {
             div.style.backgroundColor = "#ccc";
-            div.removeEventListener("click", handleClick);
           }
         });
       });
     }
   }
 
-  // Enable event listeners for all elements
+  // Enable click event listeners for all elements
   hexagonElements.forEach(row => {
     row.forEach(element => {
-      element.addEventListener("click", handleClick, { once: true });
+      element.removeEventListener("click", handleClick);
+      element.addEventListener("click", handleClick);
     });
   });
 }
