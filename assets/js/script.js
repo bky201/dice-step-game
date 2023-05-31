@@ -131,9 +131,6 @@ function closeWinPopup() {
   document.getElementById("winPopup").style.display = "none";
 }
 
-// Attach event listener to the close button
-// document.getElementById("closeButton").addEventListener("click", closeWinPopup);
-
 
 function checkWinGame(path) {
 
