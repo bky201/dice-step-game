@@ -438,7 +438,7 @@ footer {
   }
   
   .top-right-container {
-    height: 36%;
+    height: 40%;
     width: 32%;
     
   }
@@ -490,7 +490,7 @@ footer {
     left: 0;
   }
   .bottom-left-container {
-    width: 50%;
+    width: 49%;
     height: 20%;
     left: 0;
     bottom: 0;
@@ -584,7 +584,7 @@ footer {
     left: 0;
   }
   .bottom-left-container {
-    width: 50%;
+    width: 49%;
     height: 20%;
     left: 0;
     bottom: 0;
@@ -645,6 +645,38 @@ footer {
 .modal-content p {
   font-size: 80%;
 }
+
+.top-right-container {
+  height: 20%;
+   right: 0;
+ }
+ .top-left-container {
+   height: 50%;
+   left: 0;
+ }
+ .bottom-left-container {
+   width: 49%;
+   height: 20%;
+   left: 0;
+   bottom: 0;
+ }
+
+ .bottom-right-container {
+   width: 50%;
+   height: 20%;
+   right: 0;
+   bottom: 0;
+ }
+
+   .logo {
+   position: absolute;
+   width: 18%;
+   height: 100%;
+   display: flex;
+   top: 0;
+   bottom: 0;
+ }
+
 
     .container {
       margin-left: 33px;
