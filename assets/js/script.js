@@ -183,39 +183,99 @@ function rollDice() {
   playGame(num, hexagons);
 }
 
+var path1 = [];
+var path2 = [];
+var path3 = [];
+var path4 = [];
+var path5 = [];
+var path6 = [];
+var path7 = [];
+var path8 = [];
+var path9 = [];
 
-function playGame() {
-  let hexagons = document.getElementsByClassName("number");
-  let diceOne = document.getElementById("dice-one");
-  let diceTwo = document.getElementById("dice-two");
-  let steps = document.getElementById("moves");
-  let num = Math.floor(Math.random() * 6) + 1;
+function playGame(num, hexagons) {
+  let matrixElement = listToMatrix(hexagons, 5);
 
-  
-  diceOne.src = `assets/images/${num}.png`;
-  diceTwo.src = `assets/images/d${num}.png`;
-  steps.innerHTML = parseInt(steps.innerHTML) + 1;
-  checkBox(num, hexagons);
-  let elements = Array.from(document.getElementsByClassName("hexagon"));
-  let matrixElement = listToMatrix(elements, 5);
-  // console.log(matrixElement);
-  // y = resetHexagon(matrixElement, num);
+    
+    
+    resetHexagon(matrixElement, num, clickedElement => {
+      console.log("Clicked Element:", clickedElement);
+      // Perform further operations with the clicked element here
+      
+      if (checkAndIncrementPath1(clickedElement, matrixElement) === 1) {
+        path1.push(clickedElement);
+        console.log(path1);
+        if (path1.length === 5) {
+          checkWinGame(path1);
+        };
+      };
 
-  resetHexagon(matrixElement, num, clickedElement => {
-    console.log("Clicked Element:", clickedElement);
-    // Perform further operations with the clicked element here
-  });
-  // let clickedElement = resetHexagon(matrixElement, num);
-  // console.log("Clicked Element:", clickedElement);
-  // resetHexagon(matrixElement, num).then(clickedElement => {
-  //   console.log("Clicked Element:", clickedElement);
-    // Perform further operations with the clicked element here
-  // });
-  // let path1 = checkAndIncrementPath(y, matrixElement)
-  // clickedBox();
-  
-  
+      if (checkAndIncrementPath2(clickedElement, matrixElement)) {
+        path2.push(clickedElement);
+        console.log(path2);
+        if (path2.length === 5) {
+          checkWinGame(path2);
+        };
+      };
+
+      if (checkAndIncrementPath3(clickedElement, matrixElement)) {
+        path3.push(clickedElement);
+        console.log(path3);
+        if (path3.length === 5) {
+          checkWinGame(path3);
+        };
+      };
+       
+      if (checkAndIncrementPath4(clickedElement, matrixElement)) {
+        path4.push(clickedElement);
+        console.log(path4);
+        if (path4.length === 5) {
+          checkWinGame(path4);
+        };
+      };
+
+      if (checkAndIncrementPath5(clickedElement, matrixElement)) {
+        path5.push(clickedElement);
+        if (path5.length === 5) {
+          checkWinGame(path5);
+        };
+      };
+
+      if (checkAndIncrementPath6(clickedElement, matrixElement)) {
+        path6.push(clickedElement);
+        if (path6.length === 5) {
+          checkWinGame(path6);
+        };
+      };
+
+      if (checkAndIncrementPath7(clickedElement, matrixElement)) {
+        path7.push(clickedElement);
+        if (path7.length === 5) {
+          checkWinGame(path7);
+        };
+      };
+
+      if (checkAndIncrementPath8(clickedElement, matrixElement)) {
+        path8.push(clickedElement);
+        if (path8.length === 5) {
+          checkWinGame(path8);
+        };
+      };
+
+      if (checkAndIncrementPath9(clickedElement, matrixElement)) {
+        path9.push(clickedElement);
+        if (path9.length === 5) {
+          checkWinGame(path9);
+        };
+      }
+    });
+  }
+
+function rollNumber() {
+  return Math.floor(Math.random() * 6) + 1;
 }
+
+
 //Array into matrix
 
 function listToMatrix(list, elementsPerSubArray) {
@@ -237,23 +297,19 @@ function listToMatrix(list, elementsPerSubArray) {
 // function returns a highlight of numbers
 function checkBox(num, hexagons) {
   for (let element of hexagons) {
-      let clickElement = parseInt(element.innerHTML);
+      let clickElement = parseInt(element.textContent);
       if (clickElement === num) {
-          element.parentNode.style.backgroundColor = "gold";
+          element.style.backgroundColor = "gold";
       } else {
-          element.parentNode.style.backgroundColor = "#ccc";
+        if (element.textContent === "") {
+          element.style.backgroundColor = "green";
+        } else {
+          element.style.backgroundColor = "#ccc"
+        }
       }
-
   }
-  
   return hexagons;
-
 }
-
-function completePath() {
-
-}
-
 
 
 function resetHexagon(hexagonElements, value, callback) {
