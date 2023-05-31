@@ -2,7 +2,7 @@
 // Loading the page and add event listner to the buttons page
 document.addEventListener('DOMContentLoaded', function() {
   // assign variable refernce to the button element
-  const buttons = document.getElementsByTagName("button");
+  const buttons = document.getElementsByClassName("btn");
   for (const button of buttons) {
       // get an event listener to each button
       button.addEventListener("click", function() {
@@ -22,12 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
               displayBoard();
               button.disabled = true;
           } else if (button.getAttribute("data-type") === "roll-dice"){
+              rollDice();
+
+          } else if (button.getAttribute("data-type") === "start"){
+            startGame();
+
+          } else if (button.getAttribute("data-type") === "restart-game"){
+              restartGame();
               
-              playGame();
-              
-              
-          } else {
-              alert(`Unknown button type: ${buttonType}`);
+
+          } else if (button.getAttribute("data-type") === "winner"){
+            closeWinPopup();
+            restartGame();
+
+            } else {
+              alert(`Unknown button type: ${button}`);
           }
           
       
@@ -35,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
      
-})
+});
 
 /**
 * displayBoard is called when the user starts
@@ -72,13 +81,42 @@ function playGame() {
   steps.innerHTML = parseInt(steps.innerHTML) + 1;
   checkBox(num, hexagons);
   let elements = Array.from(document.getElementsByClassName("hexagon"));
+  let matrixElement = listToMatrix(elements, 5);
+  // console.log(matrixElement);
+  // y = resetHexagon(matrixElement, num);
 
-  y = resetHexagon(elements, num);
-  console.log(checkPaths(y));
+  resetHexagon(matrixElement, num, clickedElement => {
+    console.log("Clicked Element:", clickedElement);
+    // Perform further operations with the clicked element here
+  });
+  // let clickedElement = resetHexagon(matrixElement, num);
+  // console.log("Clicked Element:", clickedElement);
+  // resetHexagon(matrixElement, num).then(clickedElement => {
+  //   console.log("Clicked Element:", clickedElement);
+    // Perform further operations with the clicked element here
+  // });
+  // let path1 = checkAndIncrementPath(y, matrixElement)
   // clickedBox();
   
   
 }
+//Array into matrix
+
+function listToMatrix(list, elementsPerSubArray) {
+  let matrix = [], i, k;
+
+  for (i = 0, k = -1; i < list.length; i++) {
+      if (i % elementsPerSubArray === 0) {
+          k++;
+          matrix[k] = [];
+      }
+
+      matrix[k].push(list[i]);
+  }
+
+  return matrix;
+}
+
 
 // function returns a highlight of numbers
 function checkBox(num, hexagons) {
@@ -101,200 +139,238 @@ function completePath() {
 }
 
 
-function resetHexagon(hexagonElements, value) {
-  let clickedElements = [];
 
-  let numClicks = 0;
-  // Iterate through all div elements
-  hexagonElements.forEach(element => {
-    const initialColor = window.getComputedStyle(element).backgroundColor;
-    element.addEventListener("click", function handleClick() {
-        // Check if the element's number content matches the given value
-      if (Number(element.textContent) === value && numClicks === 0) {
-        // Set the background color of the clicked element to green
-        element.style.backgroundColor = "green";
-        element.textContent = '';
-        element.removeEventListener("click", handleClick);
-        
-        // Add the clicked element to the array of clicked elements
-        if (!clickedElements.includes(element)) {
-          clickedElements.push(element);
-        }
-      } else {
-        // Reset the background color of all elements except the clicked one
-        hexagonElements.forEach(div => {
+function resetHexagon(hexagonElements, value, callback) {
+  function handleClick(event) {
+    const element = event.target;
+    if (Number(element.textContent) === value) {
+      element.style.backgroundColor = "green";
+      element.textContent = "";
+      callback(element);
+    } else {
+      // Reset the background color of all elements except the clicked one
+      hexagonElements.forEach(row => {
+        row.forEach(div => {
           if (div !== element && div.textContent !== "") {
             div.style.backgroundColor = "#ccc";
             div.removeEventListener("click", handleClick);
-            element.removeEventListener("click", handleClick);
           }
         });
-      }
-      numClicks++;  
-      
-    });
-  });
-
-  return clickedElements;
-}
-
-
-function checkPaths(clickedElements) {
-  let path1 = 0;
-  let path2 = 0;
-  let path3 = 0;
-  let path4 = 0;
-  let path5 = 0;
-  let path6 = 0;
-  let path7 = 0;
-  let path8 = 0;
-  let path9 = 0;
-
-  for (const clickedElement of clickedElements) {
-    const row = clickedElement.row;
-    const col = clickedElement.column;
-
-    if (row === 0 && col === 0) {
-      path1++;
-      if (path1 === 5) return 1;
-    } else if (row === 1 && col === 0) {
-      path1++;
-      if (path1 === 5) return 1;
-    } else if (row === 2 && col === 0) {
-      path1++;
-      if (path1 === 5) return 1;
-    } else if (row === 3 && col === 0) {
-      path1++;
-      if (path1 === 5) return 1;
-    } else if (row === 4 && col === 0) {
-      path1++;
-      if (path1 === 5) return 1;
-    } else if (row === 0 && col === 0) {
-      path2++;
-      if (path2 === 5) return 2;
-    } else if (row === 1 && col === 1) {
-      path2++;
-      if (path2 === 5) return 2;
-    } else if (row === 2 && col === 0) {
-      path2++;
-      if (path2 === 5) return 2;
-    } else if (row === 3 && col === 1) {
-      path2++;
-      if (path2 === 5) return 2;
-    } else if (row === 4 && col === 0) {
-      path2++;
-      if (path2 === 5) return 2;
-    } else if (row === 0 && col === 1) {
-      path3++;
-      if (path3 === 5) return 3;
-    } else if (row === 1 && col === 1) {
-      path3++;
-      if (path3 === 5) return 3;
-    } else if (row === 2 && col === 1) {
-      path3++;
-      if (path3 === 5) return 3;
-    } else if (row === 3 && col === 1) {
-      path3++;
-      if (path3 === 5) return 3;
-    } else if (row === 4 && col === 1) {
-      path3++;
-      if (path3 === 5) return 3;
-    } else if (row === 0 && col === 1) {
-      path4++;
-      if (path4 === 5) return 4;
-    } else if (row === 1 && col === 2) {
-      path4++;
-      if (path4 === 5) return 4;
-    } else if (row === 2 && col === 1) {
-      path4++;
-      if (path4 === 5) return 4;
-    } else if (row === 3 && col === 2) {
-      path4++;
-      if (path4 === 5) return 4;
-    } else if (row === 4 && col === 1) {
-      path4++;
-      if (path4 === 5) return 4;
-    } else if (row === 0 && col === 2) {
-      path5++;
-      if (path5 === 5) return 5;
-    } else if (row === 1 && col === 2) {
-      path5++;
-      if (path5 === 5) return 5;
-    } else if (row === 2 && col === 2) {
-      path5++;
-      if (path5 === 5) return 5;
-    } else if (row === 3 && col === 2) {
-      path5++;
-      if (path5 === 5) return 5;
-    } else if (row === 4 && col === 2) {
-      path5++;
-      if (path5 === 5) return 5;
-    } else if (row === 0 && col === 2) {
-      path6++;
-      if (path6 === 5) return 6;
-    } else if (row === 1 && col === 3) {
-      path6++;
-      if (path6 === 5) return 6;
-    } else if (row === 2 && col === 2) {
-      path6++;
-      if (path6 === 5) return 6;
-    } else if (row === 3 && col === 3) {
-      path6++;
-      if (path6 === 5) return 6;
-    } else if (row === 4 && col === 2) {
-      path6++;
-      if (path6 === 5) return 6;
-    } else if (row === 0 && col === 3) {
-      path7++;
-      if (path7 === 5) return 7;
-    } else if (row === 1 && col === 3) {
-      path7++;
-      if (path7 === 5) return 7;
-    } else if (row === 2 && col === 3) {
-      path7++;
-      if (path7 === 5) return 7;
-    } else if (row === 3 && col === 3) {
-      path7++;
-      if (path7 === 5) return 7;
-    } else if (row === 4 && col === 3) {
-      path7++;
-      if (path7 === 5) return 7;
-    } else if (row === 0 && col === 3) {
-      path8++;
-      if (path8 === 5) return 8;
-    } else if (row === 1 && col === 4) {
-      path8++;
-      if (path8 === 5) return 8;
-    } else if (row === 2 && col === 3) {
-      path8++;
-      if (path8 === 5) return 8;
-    } else if (row === 3 && col === 4) {
-      path8++;
-      if (path8 === 5) return 8;
-    } else if (row === 4 && col === 3) {
-      path8++;
-      if (path8 === 5) return 8;
-    } else if (row === 0 && col === 4) {
-      path9++;
-      if (path9 === 5) return 9;
-    } else if (row === 1 && col === 4) {
-      path9++;
-      if (path9 === 5) return 9;
-    } else if (row === 2 && col === 4) {
-      path9++;
-      if (path9 === 5) return 9;
-    } else if (row === 3 && col === 4) {
-      path9++;
-      if (path9 === 5) return 9;
-    } else if (row === 4 && col === 4) {
-      path9++;
-      if (path9 === 5) return 9;
+      });
     }
   }
 
-  return 0;
+  // Enable event listeners for all elements
+  hexagonElements.forEach(row => {
+    row.forEach(element => {
+      element.addEventListener("click", handleClick, { once: true });
+    });
+  });
 }
 
+
+
+
+
+
+
+
+
+// function resetHexagon(hexagonElements, value) {
+//   let clickedElement = null;
+
+//   let numClicks = 0;
+//   // Iterate through all div elements
+//   hexagonElements.forEach(row => {
+//     row.forEach(element => {
+//       const initialColor = window.getComputedStyle(element).backgroundColor;
+//       element.addEventListener("click", function handleClick() {
+//         // Check if the element's number content matches the given value
+//         if (Number(element.textContent) === value && numClicks === 0) {
+//           // Set the background color of the clicked element to green
+//           element.style.backgroundColor = "green";
+//           element.textContent = "";
+//           element.removeEventListener("click", handleClick);
+
+//           // Set the clicked element
+//           clickedElement = element;
+//         } else {
+//           // Reset the background color of all elements except the clicked one
+//           hexagonElements.forEach(row => {
+//             row.forEach(div => {
+//               if (div !== element && div.textContent !== "") {
+//                 div.style.backgroundColor = "#ccc";
+//                 div.removeEventListener("click", handleClick);
+//                 element.removeEventListener("click", handleClick);
+//               }
+//             });
+//           });
+//         }
+
+//         numClicks++;
+//       });
+//     });
+//   });
+
+//   // Return the clicked element
+//   return clickedElement;
+// }
+
+
+
+
+function getIndexesOfElement(array2D, element) {
+  for (let row = 0; row < array2D.length; row++) {
+    const colIndex = array2D[row].findIndex(el => el === element);
+    if (colIndex !== -1) {
+      return { row, col: colIndex };
+    }
+  }
+  
+  // Element not found
+  return { row: -1, col: -1 };
+}
+
+
+
+function checkAndIncrementPath1(clickedElement, elements) {
+  const targetElements = [
+    elements[0][0],
+    elements[1][0],
+    elements[2][0],
+    elements[3][0],
+    elements[4][0]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+
+function checkAndIncrementPath2(clickedElement, elements) {
+  const targetElements = [
+    elements[0][0],
+    elements[1][1],
+    elements[2][0],
+    elements[3][1],
+    elements[4][0]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+
+
+function checkAndIncrementPath3(clickedElement, elements) {
+  const targetElements = [
+    elements[0][1],
+    elements[1][1],
+    elements[2][1],
+    elements[3][1],
+    elements[4][1]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath4(clickedElement, elements) {
+  const targetElements = [
+    elements[0][1],
+    elements[1][2],
+    elements[2][1],
+    elements[3][2],
+    elements[4][1]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath5(clickedElement, elements) {
+  const targetElements = [
+    elements[0][2],
+    elements[1][2],
+    elements[2][2],
+    elements[3][2],
+    elements[4][2]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath6(clickedElement, elements) {
+  const targetElements = [
+    elements[0][2],
+    elements[1][3],
+    elements[2][2],
+    elements[3][3],
+    elements[4][2]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath7(clickedElement, elements) {
+  const targetElements = [
+    elements[0][3],
+    elements[1][3],
+    elements[2][3],
+    elements[3][3],
+    elements[4][3]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath8(clickedElement, elements) {
+  const targetElements = [
+    elements[0][3],
+    elements[1][4],
+    elements[2][3],
+    elements[3][4],
+    elements[4][3]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
+function checkAndIncrementPath9(clickedElement, elements) {
+  const targetElements = [
+    elements[0][4],
+    elements[1][4],
+    elements[2][4],
+    elements[3][4],
+    elements[4][4]
+  ];
+  
+  if (targetElements.includes(clickedElement)) {
+    return 1; // Increment path2
+  }
+
+  return 0; // No increment
+}
 
 
 
