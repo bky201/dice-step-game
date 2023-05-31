@@ -46,6 +46,105 @@ document.addEventListener('DOMContentLoaded', function() {
      
 });
 
+// pop up pages start screen
+var startScreen = document.getElementById("start");
+// var startButton = document.getElementById("startButton");
+
+
+//Game page
+var gameScreen = document.getElementById("homePage");
+var game = document.getElementById("page");
+
+
+// Game over screen 
+var gameOverScreen = document.getElementById("game-over");
+
+var scoreElement = document.getElementById("moves");
+var restartButton = document.getElementById("restartButton");
+
+
+var highestScore = document.getElementById("total-score");
+var scores = document.getElementById("game-score");
+var steps = document.getElementById("moves");
+var totalSteps = document.getElementById("total-steps");
+
+// Game state variable
+var gameStarted = false;
+
+// Function to start the game
+function startGame() {
+  // Show the game screen and hide the start screen
+  gameScreen.style.display = 'block';
+  startScreen.style.display = 'none';
+
+  // Set gameStarted flag to true
+  gameStarted = true;
+
+}
+
+// Function to end the game
+function endGame() {
+  // Show the game over screen and hide the game screen
+  gameOverScreen.style.display = 'block';
+  game.style.display = 'none';
+
+
+
+  steps = parseInt(document.getElementById("moves").textContent);
+  totalSteps.textContent = steps;
+  scores.textContent = 100 - parseInt(steps) * 2;
+  highestScore.textContent = scores.textContent;
+
+  // Set gameStarted flag to false
+  gameStarted = false;
+
+}
+
+
+// Function to restart the game
+function restartGame() {
+  // Hide the game over screen and show the start screen
+  gameOverScreen.style.display = 'none';
+  window.location.href = "index.html";
+  startScreen.style.display = 'block';
+
+}
+
+
+function checkGameOver() {
+  let steps = parseInt(document.getElementById("moves").textContent);
+  if (steps === 40) {
+    // Player has lost all lives, end the game
+    endGame();
+  }
+}
+
+// Win popup
+
+// Open the "You Win" popup
+function showWinPopup() {
+  document.getElementById("winPopup").style.display = "block";
+}
+
+// Close the "You Win" popup
+function closeWinPopup() {
+  document.getElementById("winPopup").style.display = "none";
+}
+
+// Attach event listener to the close button
+document.getElementById("closeButton").addEventListener("click", closeWinPopup);
+
+
+function checkWinGame(path) {
+
+  for (element of path) {
+    element.style.backgroundColor = "red";
+  }
+  showWinPopup();
+
+}
+
+
 /**
 * displayBoard is called when the user starts
 * new game or resets a game
