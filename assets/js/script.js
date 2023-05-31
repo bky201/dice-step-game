@@ -151,18 +151,17 @@ function checkWinGame(path) {
 */
 function displayBoard() {
   let hexagonsNum = document.getElementsByClassName("number");
-  let score = document.getElementById("total-score");
-  let steps = document.getElementById("moves");
   
   for (let hexagon of hexagonsNum) {
       hexagon.innerHTML = Math.floor(Math.random()*6)+1;
   };
    
   // Reset number of moves to zero
-      steps.innerHTML = "0";
+  steps.innerHTML = "0";
+  // Set Initial Score to 100
+  highestScore.innerHTML = "100";
 
-  // Reset total score to zero    
-      score.innerHTML = "0";
+  
  
 }
 
