@@ -124,6 +124,23 @@
         </footer>
 
     </div>
+
+    <div id="winPopup" class="pop-up" style="display: none">
+        <div class="game-popup">
+            <h1>You Win!</h1>
+            <p>Congratulations!</p>
+            <button type="button" data-type="winner" class="btn btn--win" id="closeButton">Play Again</button>
+        </div>
+    </div>
+
+    <div id="game-over" class="pop-up" style="display: none">
+        <div class="game-popup">
+            <h1>Game Over!</h1>
+            <p>Your Total-steps: <span id="total-steps"></span></p>
+            <p>Your score: <span id="game-score"></span></p>
+            <button type="button" data-type="restart-game" class="btn popup-btn" id="restartButton" onclick="restartGame()">Restart</button>
+        </div>
+    </div>
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/884541f495.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
