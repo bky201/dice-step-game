@@ -141,12 +141,14 @@ body {
   left: 7rem;
   bottom: 0.6rem;
   box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
-  display: flex;
   background: rgb(56, 133, 156);
   border-radius: 10px;
   text-align: center;
   position: relative;
   float: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .bottom-right-container {
@@ -156,9 +158,9 @@ body {
   text-align: center;
   position: relative;
   float: right;
-  display: flex;
   background: rgb(56, 133, 156);
   border-radius: 10px;
+  display: flex;
   bottom: 8rem;
   right: 3rem;
 }
@@ -174,6 +176,13 @@ body {
   top: 0;
   bottom: 0;
 }
+
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 /* center text content inside the div*/
 /* .center p {
     margin: 0;
