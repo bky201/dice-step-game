@@ -433,7 +433,7 @@ footer {
 @media screen and (max-width: 1600px) {
   .top-left-container {
     height: 60%;
-    width: 58%;
+    width: 55%;
     left: 5%;
   }
   
@@ -445,7 +445,7 @@ footer {
   
   .bottom-left-container {
     height: 25%;
-    width: 58%;
+    width: 55%;
     left: 5%;
    }
   
