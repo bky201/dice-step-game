@@ -73,6 +73,9 @@ body {
   width: 60%;
 }
 
+.modal-content p {
+  font-size: 100%;
+}
 /* The close Button */
 .close {
   color: #aaaaaa;
@@ -574,6 +577,15 @@ footer {
 
 @media screen and (max-width: 540px) {
 
+  /* Modal Content */
+.modal-content {
+    width: 80%;
+}
+
+.modal-content p {
+  font-size: 80%;
+}
+
     .container {
       margin-left: 33px;
       margin-bottom: -10.74px; /* Adjust this value to control the gap between the rows */
@@ -590,7 +602,7 @@ footer {
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 20px !important;
       display: flex;
       justify-content: center;
       margin: 5px auto;
@@ -603,6 +615,15 @@ footer {
 }
 
 @media screen and (max-width: 375px) {
+
+    /* Modal Content */
+.modal-content {
+  width: 80%;
+}
+
+.modal-content p {
+font-size: 60%;
+}
 
   .container {
       margin-bottom: -10.74px; /* Adjust this value to control the gap between the rows */
@@ -691,10 +712,6 @@ footer {
     display: flex;
     top: 0;
     bottom: 0;
-  }
-
-  h1 {
-    font-size: 20px;
   }
 
   .container {
