@@ -160,9 +160,27 @@ function displayBoard() {
   steps.innerHTML = "0";
   // Set Initial Score to 100
   highestScore.innerHTML = "100";
+ 
+}
+
+function rollDice() {
+  let diceOne = document.getElementById("dice-one");
+  let diceTwo = document.getElementById("dice-two");
+  let steps = document.getElementById("moves");
+  let num = rollNumber();
+
+  highestScore.textContent = 100 - (parseInt(steps.innerHTML) * 2);
 
   
- 
+  diceOne.src = `assets/images/${num}.png`;
+  diceTwo.src = `assets/images/d${num}.png`;
+  steps.innerHTML = parseInt(steps.innerHTML) + 1;
+  
+  let hexagons = document.getElementsByClassName("hexagon");
+  checkGameOver();
+    
+  checkBox(num, hexagons);
+  playGame(num, hexagons);
 }
 
 
