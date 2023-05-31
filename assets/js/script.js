@@ -1,50 +1,76 @@
-
-// Loading the page and add event listner to the buttons page
 document.addEventListener('DOMContentLoaded', function() {
-  // assign variable refernce to the button element
   const buttons = document.getElementsByClassName("btn");
+
   for (const button of buttons) {
-      // get an event listener to each button
-      button.addEventListener("click", function() {
-          if (button.getAttribute("data-type") === "new-game"){
-             // navigate to each HTML page
-              window.location.href = "game.html"; 
-
-          } else if (button.getAttribute("data-type") === "end-game"){
-              saveGame("savedPage");
-              window.location.href = "index.html"
-          } else if (button.getAttribute("data-type") === "continue-game"){
-              window.location.href = "game.html"
-              retrieveGame("savedPage");
-              deleteGame("savedPage");
-              
-          } else if (button.getAttribute("data-type") === "start-game"){
-              displayBoard();
-              button.disabled = true;
-          } else if (button.getAttribute("data-type") === "roll-dice"){
-              rollDice();
-
-          } else if (button.getAttribute("data-type") === "start"){
-            startGame();
-
-          } else if (button.getAttribute("data-type") === "restart-game"){
-              restartGame();
-              
-
-          } else if (button.getAttribute("data-type") === "winner"){
-            closeWinPopup();
-            restartGame();
-
-            } else {
-              alert(`Unknown button type: ${button}`);
-          }
-          
-      
-      })
+    button.addEventListener("click", createButtonClickHandler(button));
   }
 
-     
+  function createButtonClickHandler(button) {
+    const dataType = button.getAttribute("data-type");
+
+    function handleNewGame() {
+      window.location.href = "game.html";
+    }
+
+    function handleEndGame() {
+      saveGame("savedPage");
+      window.location.href = "index.html";
+    }
+
+    function handleContinueGame() {
+      window.location.href = "game.html";
+      retrieveGame("savedPage");
+      deleteGame("savedPage");
+    }
+
+    function handleStartGame() {
+      displayBoard();
+      button.disabled = true;
+    }
+
+    function handleRollDice() {
+      rollDice();
+    }
+
+    function handleStart() {
+      startGame();
+    }
+
+    function handleRestartGame() {
+      restartGame();
+    }
+
+    function handleWinner() {
+      closeWinPopup();
+      restartGame();
+    }
+
+    return function() {
+      if (dataType === "new-game") {
+        handleNewGame();
+      } else if (dataType === "end-game") {
+        handleEndGame();
+      } else if (dataType === "continue-game") {
+        handleContinueGame();
+      } else if (dataType === "start-game") {
+        handleStartGame();
+      } else if (dataType === "roll-dice") {
+        handleRollDice();
+      } else if (dataType === "start") {
+        handleStart();
+      } else if (dataType === "restart-game") {
+        handleRestartGame();
+      } else if (dataType === "winner") {
+        handleWinner();
+      } else {
+        alert(`Unknown button type: ${button}`);
+      }
+    };
+  }
 });
+
+
+
 
 // pop up pages start screen
 var startScreen = document.getElementById("start");
@@ -58,9 +84,6 @@ var game = document.getElementById("page");
 
 // Game over screen 
 var gameOverScreen = document.getElementById("game-over");
-
-var scoreElement = document.getElementById("moves");
-var restartButton = document.getElementById("restartButton");
 
 
 var highestScore = document.getElementById("total-score");
@@ -134,7 +157,7 @@ function closeWinPopup() {
 
 function checkWinGame(path) {
 
-  for (element of path) {
+  for (var element of path) {
     element.style.backgroundColor = "red";
   }
   showWinPopup();
@@ -151,7 +174,7 @@ function displayBoard() {
   
   for (let hexagon of hexagonsNum) {
       hexagon.innerHTML = Math.floor(Math.random()*6)+1;
-  };
+  }
    
   // Reset number of moves to zero
   steps.innerHTML = "0";
@@ -196,74 +219,69 @@ function playGame(num, hexagons) {
     
     
     resetHexagon(matrixElement, num, clickedElement => {
-      console.log("Clicked Element:", clickedElement);
       // Perform further operations with the clicked element here
       
       if (checkAndIncrementPath1(clickedElement, matrixElement) === 1) {
         path1.push(clickedElement);
-        console.log(path1);
         if (path1.length === 5) {
           checkWinGame(path1);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath2(clickedElement, matrixElement)) {
         path2.push(clickedElement);
-        console.log(path2);
         if (path2.length === 5) {
           checkWinGame(path2);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath3(clickedElement, matrixElement)) {
         path3.push(clickedElement);
-        console.log(path3);
         if (path3.length === 5) {
           checkWinGame(path3);
-        };
-      };
+        }
+      }
        
       if (checkAndIncrementPath4(clickedElement, matrixElement)) {
         path4.push(clickedElement);
-        console.log(path4);
         if (path4.length === 5) {
           checkWinGame(path4);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath5(clickedElement, matrixElement)) {
         path5.push(clickedElement);
         if (path5.length === 5) {
           checkWinGame(path5);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath6(clickedElement, matrixElement)) {
         path6.push(clickedElement);
         if (path6.length === 5) {
           checkWinGame(path6);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath7(clickedElement, matrixElement)) {
         path7.push(clickedElement);
         if (path7.length === 5) {
           checkWinGame(path7);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath8(clickedElement, matrixElement)) {
         path8.push(clickedElement);
         if (path8.length === 5) {
           checkWinGame(path8);
-        };
-      };
+        }
+      }
 
       if (checkAndIncrementPath9(clickedElement, matrixElement)) {
         path9.push(clickedElement);
         if (path9.length === 5) {
           checkWinGame(path9);
-        };
+        }
       }
     });
   }
@@ -301,7 +319,7 @@ function checkBox(num, hexagons) {
         if (element.textContent === "") {
           element.style.backgroundColor = "green";
         } else {
-          element.style.backgroundColor = "#ccc"
+          element.style.backgroundColor = "#ccc";
         }
       }
   }
@@ -343,54 +361,6 @@ function resetHexagon(hexagonElements, value, callback) {
     });
   });
 }
-
-
-
-
-
-
-
-
-
-// function resetHexagon(hexagonElements, value) {
-//   let clickedElement = null;
-
-//   let numClicks = 0;
-//   // Iterate through all div elements
-//   hexagonElements.forEach(row => {
-//     row.forEach(element => {
-//       const initialColor = window.getComputedStyle(element).backgroundColor;
-//       element.addEventListener("click", function handleClick() {
-//         // Check if the element's number content matches the given value
-//         if (Number(element.textContent) === value && numClicks === 0) {
-//           // Set the background color of the clicked element to green
-//           element.style.backgroundColor = "green";
-//           element.textContent = "";
-//           element.removeEventListener("click", handleClick);
-
-//           // Set the clicked element
-//           clickedElement = element;
-//         } else {
-//           // Reset the background color of all elements except the clicked one
-//           hexagonElements.forEach(row => {
-//             row.forEach(div => {
-//               if (div !== element && div.textContent !== "") {
-//                 div.style.backgroundColor = "#ccc";
-//                 div.removeEventListener("click", handleClick);
-//                 element.removeEventListener("click", handleClick);
-//               }
-//             });
-//           });
-//         }
-
-//         numClicks++;
-//       });
-//     });
-//   });
-
-//   // Return the clicked element
-//   return clickedElement;
-// }
 
 
 function checkAndIncrementPath1(clickedElement, elements) {
@@ -538,18 +508,16 @@ function saveGame(key) {
   localStorage.setItem(key, htmlContent);
 }
 
-
 function retrieveGame(key) {
   const htmlContent = localStorage.getItem(key);
   if (htmlContent) {
-    document.open();
-    document.write(htmlContent);
-    document.close();
+    document.documentElement.innerHTML = htmlContent;
   }
 }
 
 function deleteGame(key) {
   localStorage.removeItem(key);
 }
+
 
 
