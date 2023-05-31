@@ -139,6 +139,7 @@ body {
   height: 10.5rem;
   width: 43rem;
   left: 7rem;
+  bottom: 0.6rem;
   box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.6);
   display: flex;
   background: rgb(56, 133, 156);
@@ -675,7 +676,7 @@ font-size: 60%;
   /* Game buttons */
 
 .btn {
-  font-size: 1rem;
+  font-size: 0.6rem;
 }
 
 /* score area */
@@ -695,19 +696,19 @@ font-size: 60%;
 }
 
 #current-name {
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 #total-score {
-  font-size: 2rem;
-}
-
-#move {
   font-size: 1rem;
 }
 
+#move {
+  font-size: 0.7rem;
+}
+
 #moves {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 
