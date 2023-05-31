@@ -132,7 +132,7 @@ function closeWinPopup() {
 }
 
 // Attach event listener to the close button
-document.getElementById("closeButton").addEventListener("click", closeWinPopup);
+// document.getElementById("closeButton").addEventListener("click", closeWinPopup);
 
 
 function checkWinGame(path) {
@@ -312,7 +312,7 @@ function checkBox(num, hexagons) {
 }
 
 
-ffunction resetHexagon(hexagonElements, value, callback) {
+function resetHexagon(hexagonElements, value, callback) {
   function handleClick(event) {
     const element = event.target;
     if (Number(element.textContent) === value) {
@@ -394,22 +394,6 @@ ffunction resetHexagon(hexagonElements, value, callback) {
 //   // Return the clicked element
 //   return clickedElement;
 // }
-
-
-
-
-function getIndexesOfElement(array2D, element) {
-  for (let row = 0; row < array2D.length; row++) {
-    const colIndex = array2D[row].findIndex(el => el === element);
-    if (colIndex !== -1) {
-      return { row, col: colIndex };
-    }
-  }
-  
-  // Element not found
-  return { row: -1, col: -1 };
-}
-
 
 
 function checkAndIncrementPath1(clickedElement, elements) {
@@ -551,11 +535,6 @@ function checkAndIncrementPath9(clickedElement, elements) {
   return 0; // No increment
 }
 
-
-
-function countScore() {
-
-}
 
 function saveGame(key) {
   const htmlContent = document.documentElement.outerHTML;
