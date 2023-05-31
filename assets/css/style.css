@@ -416,6 +416,12 @@ footer {
   color: black;
 }
 
+/* page not found */
+.text-center {
+  margin-top: 10rem ;
+  text-align: center;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 1200px) {
