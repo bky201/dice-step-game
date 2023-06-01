@@ -338,8 +338,54 @@ To ensure that all routes were correctly recorded as the 'winning route' with th
 
 * Saving data on local storage and retrieving it back can be a useful feature, but it may come with unsolved issues related to bugs or errors that need to be addressed. The game is working fine but was not able to continue play the game that was saved previously.
 
+### Lighthouse  Result
+
+After generating a Lighthouse report, it was observed that the SEO rating was 91, primarily because meta descriptions were missing. To address this, meta descriptions were subsequently added to the page to improve the SEO rating. The lowest score obtained in any section of the report was 95, which pertained to the performance aspect.
+
 ![alt text](assets/images/lightHouseStartscreen.png)
 
 ![alt text](assets/images/lightHouseHome.png)
 
 ![alt text](assets/images/lightHousegame.png)
+
+
+## Deployment
+
+### Repository
+
+The website was developed using the Visual Studio code editor and uploaded to the remote repository named 'step-game' on GitHub.
+
+During the development process, the following Git commands were utilized to push the code to the remote repository:
+
+1. `git add [file]` command was utilized to include the file(s) in the staging area prior to committing them.
+2. `git commit -m [commit message]` command was employed to record and save the changes made to the local repository, preparing them for the final step.
+3. `git push` command was utilized to upload all committed code to the remote repository on GitHub.
+
+### Hosting on Github Pages
+
+* The website was successfully published on GitHub Pages. The deployment process involved the following steps:
+  * Navigate to the "Settings" tab within the GitHub repository.
+  * Navigate to pages on the left menu
+  * Navigate to source section and select brach "main" and click "save"
+  * Once published successfully, after waiting for some time a live link will be generated as follow:
+  
+  Your site is live at https://bky201.github.io/step-game/index.html
+
+### Clone the repository code locally
+
+To create a local copy of the repository code by cloning it just do the following steos:
+
+  * Navigate to the GitHub Repository that you want to clone locally, and then click on the dropdown button labeled "Code".
+  * Click on "HTTPS" and copy the link
+  * Open your IDE and install git
+  * On your cmd line write git clone "your https link"
+
+## Credits
+
+* The images on the homepage were sourced from a specific website called [shutterstock](https://www.vecteezy.com/vector-art/6050394-abstract-geometric-shape-hexagon-background).
+
+* The dice image and Logo on the game page were sourced from [Clipart Library](https://clipart-library.com/dice-faces.html).
+
+* The ReadMe page were sourced from a Code Institute Mentor [Gareth McGirr's Repo](https://github.com/Gareth-McGirr/tacos-travels/blob/main/README.md).
+
+* Code institute Mentor [Gareth McGirr](https://www.linkedin.com/in/gareth-mcgirr/), who has shown exceptional generosity and went above and beyond the expected level of assistance, has graciously supported me by providing valuable tips and guidance throughout the completion of this project.
