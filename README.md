@@ -14,3 +14,13 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 * The Dice-Step-Game Logo and Heading
   * The logo and heading of the Dice-Step-Game are prominently displayed at the top of the page, ensuring easy visibility and clear meaning for the user wht the game is about. When the user visits the page, they will immediately notice the game's name.
+
+
+  ![alt text](assets/images/heading.png)
+
+
+  * The Game Area
+  * In this section, the user will have the opportunity to engage in a math game. They will have a clear view of the buttons, making it easy for them to choose their preferred game.
+  
+
+![alt text](assets/images/gameArea.png)
