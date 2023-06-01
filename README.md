@@ -155,10 +155,164 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 ![alt text](assets/images/notfoundm.png)
 
 
+### Tecgnologies
+
+* Visual Studio Code
+  * Visual Studio Code IDE tool was utilized in building the website. 
+* HTML
+  * The primary language utilized in constructing the Website's structure was HTML.
+* CSS
+  * The styling of the Website was designed by utilizing an separate CSS file.
+* Git
+  * The source code of the Website was regularly committed and pushed during its development using Git.  
+* GitHub
+  * The source code of the website is accessible on GitHub, and it has been uploaded using Git Pages.  
+* Favicon.io
+  * The favicon files were generated using https://favicon.io/favicon-converter/.  
+* Font Awesome
+  * The social media links in the footer section were adorned with icons obtained from https://fontawesome.com/.  
+* Tinyjpg
+  * To reduce the size of the images used throughout the website, https://tinyjpg.com/ was employed as main tool.  
+
 
 ## Testing
 
-### Responsiveness
+### Web Page Responsiveness
+
+To guarantee responsiveness, all pages were test through [ WCAG 2.1 Reflow criteria for responsive design](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) on screen sizes starting from 320px and above, following the criteria for responsive design. This testing was conducted on Chrome, Edge, and Firefox.
+The foloowing testing method was implemented.
+1. Launch a web browser and visit Aerobics Club.
+2. Access the developer tools by right-clicking and selecting "Inspect."
+3. Switch to the responsive mode and reduce the width to smaller size.
+4. Adjust the zoom level.
+5. Click and drag the responsive window to its maximum width.
+
+The Expected Output:
+
+The website exhibits responsiveness across all screen sizes, ensuring that no images appear stretched. There is no horizontal scroll present, and all elements are properly arranged without any overlapping.
+
+The Actual Output:
+
+The website generally performed as anticipated, although there were some issues specifically observed when switching to smaller screen views. 
+
+### Accessibility
+
+Throughout the development process and during the final testing of the deployed website, the [ Wave Accessibility tool ](https://wave.webaim.org/) was employed to conduct accessibility testing. The testing procedure focused on verifying that the website adhered to the following criteria:
+
+1. Proper labeling and alternative text: All elements, such as form controls and images, were appropriately labeled and included descriptive alternative text.
+
+2. Color contrast: Sufficient color contrast was ensured between text and background colors to enhance readability for individuals with visual impairments.
+
+3. Heading structure: The headings were organized in a logical hierarchy, aiding in content navigation and comprehension.
+
+4. Link accessibility: Links were clearly identified and provided meaningful text to indicate their purpose or destination.
+
+5. Form validation and error handling: Form inputs were validated and clear error messages were provided to assist users in correcting any input errors.
+
+By employing the Wave Accessibility tool and adhering to these criteria, the website aimed to enhance its accessibility and ensure a user-friendly experience for individuals with disabilities.
+
+
+### Footer Link
+
+To verify that the Social Media icon in the footer opens in a new tab, a test was conducted by clicking on the Social Media icon.
+
+All the Social Media links opened in a new tab.
+
+
+## Game Play
+
+### Winning Route
+
+To ensure that all routes were correctly recorded as the 'winning route' with the accurate indices, testing was conducted using the following arrays:
+
+
+    const targetElements = [
+
+    elements[0][0],
+    elements[1][0],
+    elements[2][0],
+    elements[3][0],
+    elements[4][0]
+      ];
+  
+    const targetElements = [
+
+    elements[0][0],
+    elements[1][1],
+    elements[2][0],
+    elements[3][1],
+    elements[4][0]
+      ];
+  
+      const targetElements = [
+
+    elements[0][1],
+    elements[1][1],
+    elements[2][1],
+    elements[3][1],
+    elements[4][1]
+      ];
+  
+      const targetElements = [
+
+    elements[0][1],
+    elements[1][2],
+    elements[2][1],
+    elements[3][2],
+    elements[4][1]
+      ];
+  
+      const targetElements = [
+
+    elements[0][2],
+    elements[1][2],
+    elements[2][2],
+    elements[3][2],
+    elements[4][2]
+      ];
+  
+      const targetElements = [
+
+    elements[0][2],
+    elements[1][3],
+    elements[2][2],
+    elements[3][3],
+    elements[4][2]
+      ];
+  
+      const targetElements = [
+
+    elements[0][3],
+    elements[1][3],
+    elements[2][3],
+    elements[3][3],
+    elements[4][3]
+      ];
+  
+     const targetElements = [
+
+    elements[0][3],
+    elements[1][4],
+    elements[2][3],
+    elements[3][4],
+    elements[4][3]
+     ];
+  
+      const targetElements = [
+    
+    elements[0][4],
+    elements[1][4],
+    elements[2][4],
+    elements[3][4],
+    elements[4][4]
+     ];
+
+
+### Website Validation Test 
+
+#### HTML Validator
+* HTML
+  * No errors were returned when passing through the [W3C validator](https://validator.w3.org/#validate_by_input).
 
 ![alt text](assets/images/indexHtmlValidation.png)
 
@@ -168,11 +322,21 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 ![alt text](assets/images/page404.png)
 
 
+#### CSS Validator
+* CSS
+  * No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).
+
 ![alt text](assets/images/cssStyleValidator.png)
 
+#### JS Validator
+* Javascript
+  * No errors were found when passing through the official [Jshint validator](https://jshint.com/).
 
 ![alt text](assets/images/jsHintValidator.png)
 
+## Unfixed Bugs
+
+* Saving data on local storage and retrieving it back can be a useful feature, but it may come with unsolved issues related to bugs or errors that need to be addressed. The game is working fine but was not able to continue play the game that was saved previously.
 
 ![alt text](assets/images/lightHouseStartscreen.png)
 
