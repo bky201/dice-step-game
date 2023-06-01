@@ -20,7 +20,35 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 
   * The Game Area
-  * In this section, the user will have the opportunity to engage in a math game. They will have a clear view of the buttons, making it easy for them to choose their preferred game.
+  * In this section, the user will have the opportunity to engage in a game. They will have a clear view of the buttons, making it easy for them to choose their numbers.
   
 
 ![alt text](assets/images/gameArea.png)
+
+
+  
+
+* Footer
+  * This will feature a number of social network icons that will open in new tabs. 
+  * These social media links make it convenient for visitors to connect with our club on various social platforms. This will allow users to engage with our social media accounts, follow our updates, and potentially share our content with their own network, thereby increasing brand exposure.
+ 
+![alt text](assets/images/footer.png)
+
+### Home Page
+* Web page 
+  * This will include two button and an instruction on how to play the game. 
+  * These buttons are to give the user a first access about the website and  how to navigate.
+
+
+![alt text](assets/images/homePage.png)
+
+
+
+
+
+
+* 404 Page
+  * A 404-page not found is a user-friendly experience on websites, helping visitors understand that the requested content is unavailable or has been moved. 
+  * If a user attempts to access an unavailable link, a 404 page will be put in place to be displayed.
+
+![alt text](assets/images/pagenotfound.png)
