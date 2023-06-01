@@ -18,6 +18,13 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
   ![alt text](assets/images/heading.png)
 
+### Home Page
+* Web page 
+  * This will include two button and an instruction on how to play the game. 
+  * These buttons are to give the user a first access about the website and  how to navigate.
+
+
+![alt text](assets/images/homePage.png)
 
   * The Game Area
   * In this section, the user will have the opportunity to engage in a game. They will have a clear view of the buttons, making it easy for them to choose their numbers.
@@ -25,6 +32,13 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 ![alt text](assets/images/gameArea.png)
 
+
+* Home Page Button
+  * NEW GAME button gives the user a choice to start a new game by clear the previous generated game.
+  * CONTINUE GAME button gives the user the choice to continue playing playing a game that was already closed.
+
+
+![alt text](assets/images/navigation.png)
 
   
 
@@ -34,13 +48,7 @@ Dice Step game is a website that allows users to play game by rolling and dice a
  
 ![alt text](assets/images/footer.png)
 
-### Home Page
-* Web page 
-  * This will include two button and an instruction on how to play the game. 
-  * These buttons are to give the user a first access about the website and  how to navigate.
 
-
-![alt text](assets/images/homePage.png)
 
 
 
@@ -54,16 +62,20 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 ![alt text](assets/images/pagenotfound.png)
 
 
-![alt text](assets/images/navigation.png)
+
 
 * Game Button
   * START GAME button the game with random number being generated.
   * ROLL DICE button for user to attempt rolling pick a number to mark the play area.
   * END GAME button to allow user quit and stop play.
 
-
-
 ![alt text](assets/images/gameButton.png)
+
+* Yellow highlight
+
+  * After starting the game every time the user rolls a dice the game game area will automatically genate highlighted options for the user to select.
+  * This will make it fast and easy for the user to choose a number.
+  
 
 
 ![alt text](assets/images/optionsChoose.png)
