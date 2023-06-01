@@ -122,15 +122,34 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 
 
+### Design Section Rough Sketches
+
+#### Start Pop-up Page Rough sketches
+
+* Start Pop-up Page
+
 ![alt text](assets/images/startPopUpPage.png)
 
 ![alt text](assets/images/startPopUpPagem.png)
 
+
+#### Home Page Rough sketches
+
+* Home Page
+
 ![alt text](assets/images/home.png)
 ![alt text](assets/images/homem.png)
 
+#### Game Page Rough sketches
+
+* Game Page
+
 ![alt text](assets/images/game.png)
 ![alt text](assets/images/gamem.png)
+
+#### 404 Page Rough sketches
+
+* 404 Page
 
 ![alt text](assets/images/notfoundPage.png)
 ![alt text](assets/images/notfoundm.png)
