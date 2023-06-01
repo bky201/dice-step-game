@@ -52,3 +52,69 @@ Dice Step game is a website that allows users to play game by rolling and dice a
   * If a user attempts to access an unavailable link, a 404 page will be put in place to be displayed.
 
 ![alt text](assets/images/pagenotfound.png)
+
+
+![alt text](assets/images/navigation.png)
+
+* Game Button
+  * START GAME button the game with random number being generated.
+  * ROLL DICE button for user to attempt rolling pick a number to mark the play area.
+  * END GAME button to allow user quit and stop play.
+
+
+
+![alt text](assets/images/gameButton.png)
+
+
+![alt text](assets/images/optionsChoose.png)
+
+
+![alt text](assets/images/gamePlay.png)
+
+
+![alt text](assets/images/initialScore.png)
+
+![alt text](assets/images/gameOverScore.png)
+
+![alt text](assets/images/winning.png)
+![alt text](assets/images/winning2.png)
+
+
+![alt text](assets/images/startPopUpPage.png)
+
+![alt text](assets/images/startPopUpPagem.png)
+
+![alt text](assets/images/home.png)
+![alt text](assets/images/homem.png)
+
+![alt text](assets/images/game.png)
+![alt text](assets/images/gamem.png)
+
+![alt text](assets/images/notfoundPage.png)
+![alt text](assets/images/notfoundm.png)
+
+
+
+## Testing
+
+### Responsiveness
+
+![alt text](assets/images/indexHtmlValidation.png)
+
+![alt text](assets/images/gameHtmlValidation.png)
+
+
+![alt text](assets/images/page404.png)
+
+
+![alt text](assets/images/cssStyleValidator.png)
+
+
+![alt text](assets/images/jsHintValidator.png)
+
+
+![alt text](assets/images/lightHouseStartscreen.png)
+
+![alt text](assets/images/lightHouseHome.png)
+
+![alt text](assets/images/lightHousegame.png)
