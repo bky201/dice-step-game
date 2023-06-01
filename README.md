@@ -341,7 +341,7 @@ To ensure that all routes were correctly recorded as the 'winning route' with th
 
 ### Lighthouse  Result
 
-After generating a Lighthouse report, it was observed that the SEO rating was 91, primarily because meta descriptions were missing. To address this, meta descriptions were subsequently added to the page to improve the SEO rating. The lowest score obtained in any section of the report was 95, which pertained to the performance aspect.
+After generating a Lighthouse report, it was observed that the SEO rating was 91, primarily because Meta tags, including meta descriptions, title tags, and meta keywords were missing. To address this, meta descriptions were subsequently added to the page to improve the SEO rating. The lowest score obtained in any section of the report was 95, which pertained to the performance aspect.
 
    ![alt text](assets/images/lightHouseStartscreen.png)
 
