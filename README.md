@@ -108,6 +108,19 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 ![alt text](assets/images/winning.png)
 ![alt text](assets/images/winning2.png)
 
+* Game Over
+
+  * The game is limited to 40 steps and if this limit has reached the user will get a game over pop up screen.
+
+![alt text](assets/images/gameOver.png)
+
+
+### Remaining functionalities to be integrated
+* Adding game Sound Button using HTMl Audio element to play sounds. HTML5 Audio provides a simple way to embed audio files in our game. We can create an Audio object in JavaScript and play, pause, or manipulate the audio playback using its methods and properties.
+
+* Game Highest Score storage. To store the highest score in a game, we can use different storage options depending on the platform and requirements of our game. Local Storage allows to store key-value pairs in the user's web browser. We can store the highest score as a value and retrieve it when needed.
+
+
 
 ![alt text](assets/images/startPopUpPage.png)
 
