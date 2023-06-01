@@ -181,7 +181,7 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 To guarantee responsiveness, all pages were test through [ WCAG 2.1 Reflow criteria for responsive design](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) on screen sizes starting from 320px and above, following the criteria for responsive design. This testing was conducted on Chrome, Edge, and Firefox.
 The foloowing testing method was implemented.
-1. Launch a web browser and visit Aerobics Club.
+1. Launch a web browser and visit Dice Step Game Web site.
 2. Access the developer tools by right-clicking and selecting "Inspect."
 3. Switch to the responsive mode and reduce the width to smaller size.
 4. Adjust the zoom level.
