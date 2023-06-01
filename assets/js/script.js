@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleContinueGame() {
+      
       window.location.href = "game.html";
       retrieveGame("savedPage");
       deleteGame("savedPage");
@@ -25,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleStartGame() {
       displayBoard();
+      var buttonRll = document.getElementById("roll");
+      buttonRll.disabled = false;
+      var buttonEnd = document.getElementById("end");
+      buttonEnd.disabled = false;
       button.disabled = true;
     }
 

@@ -100,9 +100,10 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 ![alt text](assets/images/gameOverScore.png)
 
-* Game Wine
+* Game Winner
 
-  * After completing the game the score is calculate by deducting the number of steps multiplied by 2.
+  * The winner will get a pop up screen by showing a red path
+  * This indicates the user has completed the game successfuly and and he get prompted to start again. 
 
 ![alt text](assets/images/winning.png)
 ![alt text](assets/images/winning2.png)
