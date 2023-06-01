@@ -73,7 +73,7 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 
 * Yellow highlight
 
-  * After starting the game every time the user rolls a dice the game game area will automatically genate highlighted options for the user to select.
+  * After starting the game every time the user rolls a dice the game area will automatically genate yellow highlighted options for the user to select.
   * This will make it fast and easy for the user to choose a number.
   
 
@@ -81,12 +81,28 @@ Dice Step game is a website that allows users to play game by rolling and dice a
 ![alt text](assets/images/optionsChoose.png)
 
 
+* Green highlight
+
+  * After starting the game every time the user selects a step the game area will automatically genate green highlighted options for the user.
+  * This will make it disabled and and it will make it easy for the user to complete a path by following the this green path.
+
 ![alt text](assets/images/gamePlay.png)
 
+* Initial Score
+
+  * After starting the game it will the user will get automatically assigned a score of 100 and the steps count will get 0 value.
 
 ![alt text](assets/images/initialScore.png)
 
+* Final Score
+
+  * After completing the game the score is calculate by deducting the number of steps multiplied by 2.
+
 ![alt text](assets/images/gameOverScore.png)
+
+* Game Wine
+
+  * After completing the game the score is calculate by deducting the number of steps multiplied by 2.
 
 ![alt text](assets/images/winning.png)
 ![alt text](assets/images/winning2.png)
